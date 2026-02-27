@@ -1,28 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Hero = () => {
+const Header = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <section className="hero reveal-wrapper" id="home">
-            <div className="hero-content">
-                <div className="hero-text-area">
-                    <p className="hero-subtitle"></p>
-                    <h1 className="flicker">Tamma Nived Reddy</h1>
-                    <p>
-                        Software Engineer specializing in Oracle Integration Cloud, robust backend architecture, and building scalable fault-tolerant enterprise solutions.
-                    </p>
-                    <div className="hero-buttons">
-                        <a href="#projects" className="btn btn-primary">Initialize Work</a>
-                        <a href="#contact" className="btn btn-outline">Establish Connection</a>
-                    </div>
-                </div>
-                <div className="hero-image-area">
-                    <div className="hero-image-container glass-panel">
-                        <img src="/hero_profile.png" alt="Tamma Nived Reddy Cyber Profile" className="hero-profile-img" />
-                    </div>
-                </div>
+        <header className={scrolled ? "scrolled" : ""}>
+            <div className="header-inner">
+                <a href="#home" className="logo">NIVED</a>
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
             </div>
-        </section>
+        </header>
     );
 };
 
-export default Hero;
+export default Header;
