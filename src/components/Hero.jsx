@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
+const Hero = () => {
     return (
-        <header className={scrolled ? "scrolled" : ""}>
-            <div className="header-inner">
-                <a href="#home" className="logo">NIVED</a>
-                <nav>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </nav>
+        <section className="hero reveal-wrapper" id="home">
+            <div className="hero-content">
+                <div className="hero-text-area">
+                    <p className="hero-subtitle"></p>
+                    <h1 className="flicker">Tamma Nived Reddy</h1>
+                    <p>
+                        Software Engineer specializing in Oracle Integration Cloud, robust backend architecture, and building scalable fault-tolerant enterprise solutions.
+                    </p>
+                    <div className="hero-buttons">
+                        <a href="/Nived_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download Resume</a>
+                        <a href="#projects" className="btn btn-outline">View Projects</a>
+                        <a href="#contact" className="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div className="hero-image-area">
+                    <div className="hero-image-container glass-panel">
+                        <img src="/hero_profile.png" alt="Tamma Nived Reddy Cyber Profile" className="hero-profile-img" />
+                    </div>
+                </div>
             </div>
-        </header>
+        </section>
     );
 };
 
-export default Header;
+export default Hero;
