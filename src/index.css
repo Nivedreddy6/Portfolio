@@ -849,4 +849,21 @@ nav a.active::after {
   .hero h1 {
     font-size: 3rem;
   }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  .hero-content {
+    text-align: center;
+    margin-top: 60px;
+  }
 }
