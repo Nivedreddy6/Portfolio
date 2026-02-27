@@ -22,12 +22,12 @@ const About = () => {
                         <div className="timeline-org">Vignan University (CGPA: 7.33)</div>
                     </div>
                     <div className="timeline-item">
-                        <div className="timeline-year">2022</div>
+                        <div className="timeline-year">2023</div>
                         <div className="timeline-title">Bachelor of Science</div>
                         <div className="timeline-org">ASN Degree College (CGPA: 8.38)</div>
                     </div>
                     <div className="timeline-item">
-                        <div className="timeline-year">2019</div>
+                        <div className="timeline-year">2020</div>
                         <div className="timeline-title">Intermediate</div>
                         <div className="timeline-org">Guru’s Junior College</div>
                     </div>
@@ -38,3 +38,4 @@ const About = () => {
 };
 
 export default About;
+
