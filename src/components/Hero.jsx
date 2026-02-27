@@ -12,8 +12,8 @@ const Hero = () => {
                     </p>
                     <div className="hero-buttons">
                         <a href="/Nived_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download Resume</a>
-                        <a href="#projects" className="btn btn-outline">View Projects</a>
-                        <a href="#contact" className="btn btn-outline">Contact Me</a>
+                        <a href="#projects" className="btn btn-outline glass-panel">View Projects</a>
+                        <a href="#contact" className="btn btn-outline glass-panel">Contact Me</a>
                     </div>
                 </div>
                 <div className="hero-image-area">
