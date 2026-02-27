@@ -426,6 +426,17 @@ nav a.active::after {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.btn-outline.glass-panel {
+  border: 1px solid var(--glass-border);
+}
+
+.btn-outline.glass-panel:hover {
+  border-color: var(--accent-cyan);
+  background: var(--glass-hover);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  transform: translateY(-2px);
+}
+
 /* ================= ABOUT ================= */
 .about-grid {
   display: grid;
