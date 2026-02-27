@@ -23,7 +23,7 @@ const About = () => {
                     </div>
                     <div className="timeline-item">
                         <div className="timeline-year">2023</div>
-                        <div className="timeline-title">Bachelor of Science</div>
+                        <div className="timeline-title">Bachelor of Computer Applications</div>
                         <div className="timeline-org">ASN Degree College (CGPA: 8.38)</div>
                     </div>
                     <div className="timeline-item">
@@ -38,4 +38,5 @@ const About = () => {
 };
 
 export default About;
+
 
