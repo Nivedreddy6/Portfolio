@@ -19,7 +19,8 @@ const Projects = () => {
             category: "Application Engineering",
             title: "Collegiate Datacore",
             description: "A cyberpunk-styled Java desktop application for managing student records. Features real-time visual analytics (pie charts), custom neon UI components, robust input validation, and secure CRUD operations.",
-            image: "/project_java.png"
+            image: "/project_java.png",
+            link: "/CollegiateDatacore.jar"
         },
         {
             category: "Data Architecture",
