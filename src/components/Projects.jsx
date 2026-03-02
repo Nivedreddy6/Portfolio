@@ -17,8 +17,8 @@ const Projects = () => {
         },
         {
             category: "Application Engineering",
-            title: "Student Management Core",
-            description: "Developed a comprehensive Java desktop application incorporating secure CRUD operations, strong input validation, and highly optimized persistence sequences.",
+            title: "Collegiate Datacore",
+            description: "A cyberpunk-styled Java desktop application for managing student records. Features real-time visual analytics (pie charts), custom neon UI components, robust input validation, and secure CRUD operations.",
             image: "/project_java.png"
         },
         {
