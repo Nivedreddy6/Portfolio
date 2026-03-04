@@ -145,6 +145,63 @@ body {
   }
 }
 
+@keyframes rgbRotate {
+  0% {
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
+  }
+
+  33% {
+    color: #8a2be2;
+    text-shadow: 0 0 10px #8a2be2;
+  }
+
+  66% {
+    color: #ff00f0;
+    text-shadow: 0 0 10px #ff00f0;
+  }
+
+  100% {
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
+  }
+}
+
+.rgb-text {
+  animation: rgbRotate 4s infinite linear;
+}
+
+@keyframes rgbBoxRotate {
+  0% {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), 0 0 15px #00f0ff, inset 0 0 10px rgba(0, 240, 255, 0.2);
+    border-color: #00f0ff;
+  }
+
+  33% {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), 0 0 15px #8a2be2, inset 0 0 10px rgba(138, 43, 226, 0.2);
+    border-color: #8a2be2;
+  }
+
+  66% {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), 0 0 15px #ff00f0, inset 0 0 10px rgba(255, 0, 240, 0.2);
+    border-color: #ff00f0;
+  }
+
+  100% {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), 0 0 15px #00f0ff, inset 0 0 10px rgba(0, 240, 255, 0.2);
+    border-color: #00f0ff;
+  }
+}
+
+.rgb-box {
+  animation: rgbBoxRotate 4s infinite linear;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  border: 2px solid transparent;
+}
+
 /* ================= HEADER ================= */
 header {
   position: fixed;
