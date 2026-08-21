@@ -3674,5 +3674,98 @@ footer {
   letter-spacing: 0.2px;
 }
 
+/* --- Detailed Modal Banner SVG Animations --- */
+.modal-flow-line-1 {
+  stroke-dasharray: 12 6;
+  animation: modal-dash-flow 25s linear infinite;
+}
+
+.modal-flow-line-2 {
+  stroke-dasharray: 8 4;
+  animation: modal-dash-flow-reverse 20s linear infinite;
+}
+
+.modal-rotate-circle-inner {
+  transform-origin: 200px 100px;
+  animation: modal-spin-clockwise 18s linear infinite;
+}
+
+.modal-rotate-circle-outer {
+  transform-origin: 200px 100px;
+  animation: modal-spin-counterclockwise 25s linear infinite;
+}
+
+.modal-circuit-line-1 {
+  stroke-dasharray: 15 10;
+  animation: modal-dash-flow 18s linear infinite;
+}
+
+.modal-circuit-line-2 {
+  stroke-dasharray: 10 8;
+  animation: modal-dash-flow-reverse 14s linear infinite;
+}
+
+.modal-pulse-box {
+  transform-origin: 200px 90px;
+  animation: modal-box-pulse 3s infinite alternate ease-in-out;
+}
+
+.modal-wave-line-1 {
+  stroke-dasharray: 15 8;
+  animation: modal-dash-flow 30s linear infinite;
+}
+
+.modal-wave-line-2 {
+  stroke-dasharray: 10 5;
+  animation: modal-dash-flow-reverse 22s linear infinite;
+}
+
+@keyframes modal-dash-flow {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes modal-dash-flow-reverse {
+  from {
+    stroke-dashoffset: -400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes modal-spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes modal-spin-counterclockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes modal-box-pulse {
+  from {
+    transform: scale(0.97) translate(-3px, -2px);
+    filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.2));
+  }
+  to {
+    transform: scale(1.03) translate(-3px, -2px);
+    filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+  }
+}
+
 
 
