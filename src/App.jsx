@@ -1692,10 +1692,10 @@ function App() {
                     <div className="paper-header">
                       <h1>TAMMA NIVED REDDY</h1>
                       <div className="contact-meta">
-                        <span>nivedtamma@gmail.com</span> | <span>+91 9177654030</span> | <span>Tenali, AP</span>
+                        <span>nivedreddy6@gmail.com</span> | <span>+91 77026 18534</span> | <span>Tenali, Andhra Pradesh</span>
                       </div>
                       <div className="social-meta">
-                        <a href="https://github.com/Nivedreddy6" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://linkedin.com/in/tamma-nived-reddy-06b2452b4" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/Nivedreddy6" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://linkedin.com/in/nived-reddy-97a986257" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                       </div>
                     </div>
 
@@ -1703,7 +1703,7 @@ function App() {
                     <div className="paper-section">
                       <h2 className="section-heading">Professional Summary</h2>
                       <p className="summary-paragraph">
-                        Enthusiastic and detail-oriented Computer Science student with hands-on experience in full-stack development, database schema design, and modular backend service engineering. Proven track record of delivering clean validation logic, interactive UI designs, and highly optimized database workflows.
+                        Motivated MCA graduate with hands-on full stack development experience across Python, Flask, React JS, Angular, .NET Core, and MySQL. Proven ability to build responsive web applications, robust REST APIs, and normalized database solutions with strong problem-solving skills.
                       </p>
                     </div>
 
@@ -1712,14 +1712,16 @@ function App() {
                       <h2 className="section-heading">Work Experience</h2>
                       <div className="job-entry">
                         <div className="entry-header">
-                          <span className="title">Full-Stack Developer Intern</span>
+                          <span className="title">Full Stack Development Intern</span>
                           <span className="date">Nov 2025 – May 2026</span>
                         </div>
                         <div className="company">Inspiredge IT Solutions</div>
                         <ul className="bullets">
-                          <li>Developed and maintained responsive user interface modules with clean form validation systems (Angular / C# / .NET Core).</li>
-                          <li>Designed, optimized, and maintained database tables, CRUD scripts, and triggers in MySQL databases.</li>
-                          <li>Collaborated in Agile sprints, addressing software feature bugs, system testing, and code refactoring tasks.</li>
+                          <li>Developed and maintained full-stack web application modules using Python, Angular, .NET Core, and MySQL.</li>
+                          <li>Designed robust backend architecture and secure REST APIs to support scalable application functionality.</li>
+                          <li>Engineered responsive user interfaces with comprehensive client-side data validation and error handling.</li>
+                          <li>Managed normalized MySQL database schemas, authored optimized SQL queries, and implemented efficient CRUD operations.</li>
+                          <li>Collaborated actively in Agile sprint ceremonies, technical code reviews, debugging, and quality assurance.</li>
                         </ul>
                       </div>
                     </div>
@@ -1729,20 +1731,11 @@ function App() {
                       <h2 className="section-heading">Education</h2>
                       <div className="edu-entry">
                         <div className="entry-header">
-                          <span className="title">B.Tech in Computer Science & Engineering</span>
-                          <span className="institution">NRI Institute of Technology</span>
+                          <span className="title">Master of Computer Applications (MCA)</span>
+                          <span className="institution">Vignan's Foundation for Science, Technology & Research</span>
                         </div>
                         <div className="meta-row">
-                          <span>GPA: 8.2 / 10.0</span> | <span>Expected 2026</span>
-                        </div>
-                      </div>
-                      <div className="edu-entry">
-                        <div className="entry-header">
-                          <span className="title">Intermediate (MPC)</span>
-                          <span className="institution">Sri Chaitanya Junior College</span>
-                        </div>
-                        <div className="meta-row">
-                          <span>GPA: 9.61 / 10.0</span> | <span>2020 – 2022</span>
+                          <span>CGPA: 7.33 / 10.0</span> | <span>Graduated 2025</span>
                         </div>
                       </div>
                     </div>
@@ -1754,29 +1747,29 @@ function App() {
                         <strong>Programming Languages:</strong>
                         <div className="skills-pills-container">
                           <span className="skill-pill">Python</span>
-                          <span className="skill-pill">Java</span>
-                          <span className="skill-pill">C#</span>
-                          <span className="skill-pill">C</span>
+                          <span className="skill-pill">Flask</span>
+                          <span className="skill-pill">.NET Core</span>
                           <span className="skill-pill">SQL</span>
+                          <span className="skill-pill">MySQL</span>
                         </div>
                       </div>
                       <div className="skills-row">
                         <strong>Frameworks & Libraries:</strong>
                         <div className="skills-pills-container">
+                          <span className="skill-pill">React JS</span>
                           <span className="skill-pill">Angular</span>
-                          <span className="skill-pill">.NET Core</span>
-                          <span className="skill-pill">React</span>
-                          <span className="skill-pill">Express</span>
+                          <span className="skill-pill">Redux Toolkit</span>
                         </div>
                       </div>
                       <div className="skills-row">
-                        <strong>Tools & Protocols:</strong>
+                        <strong>Tools & Development:</strong>
                         <div className="skills-pills-container">
-                          <span className="skill-pill">Git</span>
-                          <span className="skill-pill">MySQL</span>
                           <span className="skill-pill">RESTful APIs</span>
                           <span className="skill-pill">OOP Principles</span>
-                          <span className="skill-pill">Agile Methodology</span>
+                          <span className="skill-pill">Git & GitHub</span>
+                          <span className="skill-pill">VS Code</span>
+                          <span className="skill-pill">Visual Studio</span>
+                          <span className="skill-pill">Vite</span>
                         </div>
                       </div>
                     </div>
@@ -1785,8 +1778,8 @@ function App() {
                     <div className="paper-section last">
                       <h2 className="section-heading">Certifications</h2>
                       <ul className="bullets">
-                        <li><strong>Python Programming Certification</strong> – Codegnan Training Institute</li>
-                        <li><strong>MySQL Database Specialist Certification</strong> – Codegnan Training Institute</li>
+                        <li><strong>Python Certification</strong> – Codegnan Training Institute</li>
+                        <li><strong>MySQL Certification</strong> – Codegnan Training Institute</li>
                       </ul>
                     </div>
                   </div>
