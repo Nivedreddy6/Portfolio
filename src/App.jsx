@@ -74,6 +74,13 @@ function App() {
       solution: "Built a React single-page application integrating Redux Toolkit for bookmarks state storage, Axios client modules, and React Router v7 routes. Created custom filtering algorithms sorting records dynamically.",
       technologies: ["React 19", "Redux Toolkit", "React Router v7", "Axios", "CSS Grid/Flexbox"],
       result: "Delivered a lightweight client-side digital catalog supporting responsive search queries, collection sorting filters, bookmarks caching, and route protection structures."
+    },
+    zapbite: {
+      title: "ZapBite — AI Food Delivery Platform",
+      problem: "Traditional delivery systems lack automated rider route telemetry, interactive multi-role portals, and intelligent dietary search concierges.",
+      solution: "Engineered a full-stack real-time logistics dashboard using React 19, Tailwind CSS v4, and Google Maps API. Integrated an AI-powered conversational food concierge (BiteBot AI), live order tracking progress, and simulated telemetry speedometers.",
+      technologies: ["React 19", "Tailwind CSS v4", "Google Maps API", "BiteBot AI", "Node.js", "Chart.js"],
+      result: "Delivered a cyber-luxe dark glassmorphic web portal tracking order lifecycle states, auto-calculating speed/ETAs, and providing interactive geocoding pinned locations."
     }
   };
 
@@ -1688,6 +1695,86 @@ function App() {
               </div>
             </div>
 
+            {/* Project 4: ZapBite */}
+            <div 
+              className="project-card glass-card clickable-project-card"
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('zapbite')}
+            >
+              <div className="project-visual">
+                <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 50 0 L 50 220 M 100 0 L 100 220 M 150 0 L 150 220 M 200 0 L 200 220 M 250 0 L 250 220 M 300 0 L 300 220 M 350 0 L 350 220" stroke="rgba(255,255,255,0.02)" strokeWidth="1" />
+                  <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150 M 0 200 L 400 200" stroke="rgba(255,255,255,0.02)" strokeWidth="1" />
+                  
+                  <path d="M 50 160 L 180 160 L 230 80 L 350 80" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="4" strokeLinecap="round" />
+                  <path d="M 50 160 L 180 160 L 230 80 L 350 80" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="6 4" className="modal-wave-line-1" />
+                  
+                  <circle cx="50" cy="160" r="6" fill="#a855f7" />
+                  <circle cx="50" cy="160" r="12" fill="none" stroke="#a855f7" strokeWidth="1" opacity="0.5" style={{ animation: 'pulse-glow-circle 2s infinite' }} />
+                  
+                  <circle cx="350" cy="80" r="6" fill="var(--accent-cyan)" />
+                  <circle cx="350" cy="80" r="12" fill="none" stroke="var(--accent-cyan)" strokeWidth="1" opacity="0.5" style={{ animation: 'pulse-glow-circle 2s infinite' }} />
+
+                  <g transform="translate(195, 136)" className="svg-float-element">
+                    <circle cx="12" cy="12" r="16" fill="rgba(7, 11, 20, 0.9)" stroke="var(--accent-purple)" strokeWidth="1.5" />
+                    <path d="M4 14 L8 14 M16 14 L20 14 M8 14 C8 10 16 10 16 14" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="8" cy="14" r="2.5" fill="#a855f7" />
+                    <circle cx="16" cy="14" r="2.5" fill="#a855f7" />
+                  </g>
+                </svg>
+              </div>
+              <div className="project-content">
+                <div className="project-tech">
+                  <span className="tech-pill">React 19</span>
+                  <span className="tech-pill">Tailwind CSS v4</span>
+                  <span className="tech-pill">Google Maps API</span>
+                  <span className="tech-pill">BiteBot AI</span>
+                </div>
+                <h3 className="project-title">
+                  ZapBite AI Food Delivery
+                </h3>
+                <p className="project-desc">
+                  Engineered a full-stack, AI-powered food delivery and restaurant logistics ecosystem featuring dynamic Google Maps telemetry.
+                </p>
+                <ul className="project-bullets">
+                  <li>Integrated a real-time Google Maps interface overlay tracking dynamic rider coordinate paths.</li>
+                  <li>Created BiteBot AI, a responsive conversational dietary concierge recommending local dishes.</li>
+                  <li>Authored automated order lifecycles and realistic delivery SPEED/ETA speedometers.</li>
+                </ul>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem' }}>
+                  <a 
+                    href="https://github.com/Nivedreddy6/ZapBite" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="btn-glow btn-primary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub Code
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                  <a 
+                    href="https://zap-bite.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="btn-glow btn-secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Live Demo
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
       </div>
@@ -2125,6 +2212,16 @@ function App() {
                     <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
                     <path d="M0 100 Q100 50, 200 100 T400 100" stroke="var(--accent-cyan)" strokeWidth="1.5" fill="none" opacity="0.5" className="modal-wave-line-1" />
                     <path d="M0 120 Q120 180, 240 80 T400 120" stroke="var(--accent-purple)" strokeWidth="1.5" fill="none" opacity="0.4" className="modal-wave-line-2" />
+                  </svg>
+                )}
+                {selectedProject === 'zapbite' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(6, 182, 212, 0.05)" />
+                    <circle cx="200" cy="100" r="30" fill="none" stroke="var(--accent-cyan)" strokeWidth="1" strokeDasharray="4 2" className="modal-rotate-circle-inner" />
+                    <circle cx="200" cy="100" r="50" fill="none" stroke="var(--accent-purple)" strokeWidth="1" strokeDasharray="8 4" className="modal-rotate-circle-outer" />
+                    <path d="M50 20 L200 100 L350 20" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeLinecap="round" opacity="0.3" className="modal-flow-line-1" />
+                    <path d="M50 180 L200 100 L350 180" stroke="var(--accent-purple)" strokeWidth="1.5" strokeLinecap="round" opacity="0.2" className="modal-flow-line-2" />
+                    <circle cx="200" cy="100" r="6" fill="var(--accent-cyan)" className="modal-pulse-box" />
                   </svg>
                 )}
               </div>
