@@ -906,7 +906,9 @@ function App() {
                     <div className="cert-info">
                       <h3>Python Certification</h3>
                       <p className="cert-issuer">Codegnan Training Institute</p>
-                      <span className="cert-view-link" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.4rem', display: 'inline-block' }}>Click to view certificate</span>
+                      <button className="cert-btn">
+                        View Certificate
+                      </button>
                     </div>
                   </div>
 
@@ -927,7 +929,9 @@ function App() {
                     <div className="cert-info">
                       <h3>MySQL Certification</h3>
                       <p className="cert-issuer">Codegnan Training Institute</p>
-                      <span className="cert-view-link" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.4rem', display: 'inline-block' }}>Click to view certificate</span>
+                      <button className="cert-btn">
+                        View Certificate
+                      </button>
                     </div>
                   </div>
 
@@ -948,7 +952,9 @@ function App() {
                     <div className="cert-info">
                       <h3>Frontend Certification</h3>
                       <p className="cert-issuer">Codegnan Training Institute</p>
-                      <span className="cert-view-link" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.4rem', display: 'inline-block' }}>Click to view certificate</span>
+                      <button className="cert-btn">
+                        View Certificate
+                      </button>
                     </div>
                   </div>
 
