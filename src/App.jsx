@@ -22,6 +22,7 @@ function App() {
   const [formState, setFormState] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const handleCopyLink = () => {
     const resumePath = `${window.location.origin}/Tamma_Nived_Reddy_Resume.pdf`;
@@ -31,6 +32,31 @@ function App() {
   };
 
 
+
+  // Static data backing the project detailed display modal
+  const projectsData = {
+    crm: {
+      title: "CRM Database System",
+      problem: "Enterprise sales operations lacked centralized data models, resulting in redundant transactions, orphaned records, and slow query analytics latency.",
+      solution: "Engineered a fully normalized relational schema built in 3NF layout. Implemented stored procedures, indexing keys, and triggers to automate data cleansing and transactional workflows.",
+      technologies: ["MySQL", "SQL", "Database Design", "Stored Procedures", "Query Tuning"],
+      result: "Achieved zero data anomaly conflicts, minimized redundant transaction logs, and reduced analytic query execution latency by 35% through optimal table indexing keys."
+    },
+    atm: {
+      title: "ATM Simulator",
+      problem: "Basic console banking applications fail to structure concurrent transactional states safely, leading to validation bypasses and poor error boundary mapping.",
+      solution: "Developed an object-oriented Python command-line banking emulator. Implemented finite state-machine transitions, exception frameworks, and mock database memory tables.",
+      technologies: ["Python", "Object-Oriented Programming (OOP)", "Finite State Logic", "Exception Handling", "Data Structures"],
+      result: "Engineered a robust terminal banking console with clean authentication flow, safe deposit/withdrawal processing, and automated account lock validation."
+    },
+    library: {
+      title: "Library Management System",
+      problem: "Users require a simple, responsive portal to search, bookmark, and catalog book collections without complex infrastructure requirements.",
+      solution: "Built a React single-page application integrating Redux Toolkit for bookmarks state storage, Axios client modules, and React Router v7 routes. Created custom filtering algorithms sorting records dynamically.",
+      technologies: ["React 19", "Redux Toolkit", "React Router v7", "Axios", "CSS Grid/Flexbox"],
+      result: "Delivered a lightweight client-side digital catalog supporting responsive search queries, collection sorting filters, bookmarks caching, and route protection structures."
+    }
+  };
 
   // --- Typing Animation Hook ---
   useEffect(() => {
@@ -1355,9 +1381,10 @@ function App() {
             
             {/* Project 1: CRM Database System */}
             <div 
-              className="project-card glass-card"
+              className="project-card glass-card clickable-project-card"
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('crm')}
             >
               <div className="project-visual">
                 <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1407,9 +1434,7 @@ function App() {
                   <span className="tech-pill">Database Design</span>
                 </div>
                 <h3 className="project-title">
-                  <a href="https://github.com/Nivedreddy6/Mysql" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
-                    CRM Database System
-                  </a>
+                  CRM Database System
                 </h3>
                 <p className="project-desc">
                   Designed and optimized a normalized database structure to manage customer relations, transactions, and sales insights efficiently.
@@ -1426,6 +1451,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="btn-glow btn-primary"
                     style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     GitHub Code
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
@@ -1438,9 +1464,10 @@ function App() {
 
             {/* Project 2: ATM Simulator */}
             <div 
-              className="project-card glass-card"
+              className="project-card glass-card clickable-project-card"
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('atm')}
             >
               <div className="project-visual">
                 <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1473,9 +1500,7 @@ function App() {
                   <span className="tech-pill">Data Structures</span>
                 </div>
                 <h3 className="project-title">
-                  <a href="https://atm-pi-ecru.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
-                    ATM Simulator
-                  </a>
+                  ATM Simulator
                 </h3>
                 <p className="project-desc">
                   Developed a console-based banking emulator implementing OOP structures, secure verification, and mock transaction logic.
@@ -1492,6 +1517,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="btn-glow btn-primary"
                     style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Live Demo
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
@@ -1506,9 +1532,10 @@ function App() {
 
             {/* Project 3: Library Management System */}
             <div 
-              className="project-card glass-card"
+              className="project-card glass-card clickable-project-card"
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('library')}
             >
               <div className="project-visual">
                 <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1579,9 +1606,7 @@ function App() {
                   <span className="tech-pill">Axios</span>
                 </div>
                 <h3 className="project-title">
-                  <a href="https://library-management-six-silk.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
-                    Library Management System
-                  </a>
+                  Library Management System
                 </h3>
                 <p className="project-desc">
                   Designed and built a responsive web application to catalog, filter, search, and manage a digital collection of books.
@@ -1598,6 +1623,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="btn-glow btn-primary"
                     style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Live Demo
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" style={{ marginLeft: '6px' }}>
@@ -1611,6 +1637,79 @@ function App() {
             </div>
 
           </div>
+
+          {/* Project Detailed Modal Viewer */}
+          {selectedProject && (
+            <div className="project-modal-backdrop" onClick={() => setSelectedProject(null)}>
+              <div className="project-modal-card glass-card animate-fade-in" onClick={(e) => e.stopPropagation()}>
+                <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+                
+                <div className="modal-banner">
+                  <div className="modal-banner-graphic">
+                    {selectedProject === 'crm' && (
+                      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="rgba(99, 102, 241, 0.05)" />
+                        <path d="M-50 150 C100 100, 200 250, 450 150" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.4" />
+                        <path d="M-50 120 C120 180, 250 80, 450 130" stroke="var(--accent-purple)" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.3" />
+                        <circle cx="200" cy="100" r="40" fill="none" stroke="var(--accent-cyan)" strokeWidth="1" strokeDasharray="6 2" />
+                        <circle cx="200" cy="100" r="60" fill="none" stroke="var(--accent-purple)" strokeWidth="1" strokeDasharray="10 4" />
+                      </svg>
+                    )}
+                    {selectedProject === 'atm' && (
+                      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="rgba(168, 85, 247, 0.05)" />
+                        <path d="M0 40 L180 40 L220 80 L400 80" stroke="var(--accent-purple)" strokeWidth="2" opacity="0.3" />
+                        <path d="M0 140 L150 140 L190 100 L400 100" stroke="var(--accent-cyan)" strokeWidth="2" opacity="0.2" />
+                        <rect x="160" y="70" width="80" height="40" rx="8" fill="rgba(255,255,255,0.02)" stroke="var(--accent-cyan)" strokeWidth="1.5" />
+                      </svg>
+                    )}
+                    {selectedProject === 'library' && (
+                      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="rgba(236, 72, 153, 0.05)" />
+                        <path d="M 50 0 L 50 200 M 100 0 L 100 200 M 150 0 L 150 200 M 200 0 L 200 200 M 250 0 L 250 200 M 300 0 L 300 200 M 350 0 L 350 200" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                        <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                        <path d="M0 100 Q100 50, 200 100 T400 100" stroke="var(--accent-cyan)" strokeWidth="1.5" fill="none" opacity="0.5" />
+                        <path d="M0 120 Q120 180, 240 80 T400 120" stroke="var(--accent-purple)" strokeWidth="1.5" fill="none" opacity="0.4" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="modal-body-content">
+                  <h3 className="modal-title">{projectsData[selectedProject].title}</h3>
+                  
+                  <div className="modal-info-block">
+                    <h4 className="modal-section-heading">Problem</h4>
+                    <p className="modal-text">{projectsData[selectedProject].problem}</p>
+                  </div>
+                  
+                  <div className="modal-info-block">
+                    <h4 className="modal-section-heading">Solution</h4>
+                    <p className="modal-text">{projectsData[selectedProject].solution}</p>
+                  </div>
+                  
+                  <div className="modal-info-block">
+                    <h4 className="modal-section-heading">Technologies Used</h4>
+                    <div className="modal-tags">
+                      {projectsData[selectedProject].technologies.map((tech, idx) => (
+                        <span key={idx} className="modal-tag-pill">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="modal-info-block">
+                    <h4 className="modal-section-heading">Result</h4>
+                    <p className="modal-text">{projectsData[selectedProject].result}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
       </div>
     )}
