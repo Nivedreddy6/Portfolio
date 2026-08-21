@@ -1637,79 +1637,6 @@ function App() {
             </div>
 
           </div>
-
-          {/* Project Detailed Modal Viewer */}
-          {selectedProject && (
-            <div className="project-modal-backdrop" onClick={() => setSelectedProject(null)}>
-              <div className="project-modal-card glass-card animate-fade-in" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
-                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </button>
-                
-                <div className="modal-banner">
-                  <div className="modal-banner-graphic">
-                    {selectedProject === 'crm' && (
-                      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100%" height="100%" fill="rgba(99, 102, 241, 0.05)" />
-                        <path d="M-50 150 C100 100, 200 250, 450 150" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.4" />
-                        <path d="M-50 120 C120 180, 250 80, 450 130" stroke="var(--accent-purple)" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.3" />
-                        <circle cx="200" cy="100" r="40" fill="none" stroke="var(--accent-cyan)" strokeWidth="1" strokeDasharray="6 2" />
-                        <circle cx="200" cy="100" r="60" fill="none" stroke="var(--accent-purple)" strokeWidth="1" strokeDasharray="10 4" />
-                      </svg>
-                    )}
-                    {selectedProject === 'atm' && (
-                      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100%" height="100%" fill="rgba(168, 85, 247, 0.05)" />
-                        <path d="M0 40 L180 40 L220 80 L400 80" stroke="var(--accent-purple)" strokeWidth="2" opacity="0.3" />
-                        <path d="M0 140 L150 140 L190 100 L400 100" stroke="var(--accent-cyan)" strokeWidth="2" opacity="0.2" />
-                        <rect x="160" y="70" width="80" height="40" rx="8" fill="rgba(255,255,255,0.02)" stroke="var(--accent-cyan)" strokeWidth="1.5" />
-                      </svg>
-                    )}
-                    {selectedProject === 'library' && (
-                      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100%" height="100%" fill="rgba(236, 72, 153, 0.05)" />
-                        <path d="M 50 0 L 50 200 M 100 0 L 100 200 M 150 0 L 150 200 M 200 0 L 200 200 M 250 0 L 250 200 M 300 0 L 300 200 M 350 0 L 350 200" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                        <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                        <path d="M0 100 Q100 50, 200 100 T400 100" stroke="var(--accent-cyan)" strokeWidth="1.5" fill="none" opacity="0.5" />
-                        <path d="M0 120 Q120 180, 240 80 T400 120" stroke="var(--accent-purple)" strokeWidth="1.5" fill="none" opacity="0.4" />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="modal-body-content">
-                  <h3 className="modal-title">{projectsData[selectedProject].title}</h3>
-                  
-                  <div className="modal-info-block">
-                    <h4 className="modal-section-heading">Problem</h4>
-                    <p className="modal-text">{projectsData[selectedProject].problem}</p>
-                  </div>
-                  
-                  <div className="modal-info-block">
-                    <h4 className="modal-section-heading">Solution</h4>
-                    <p className="modal-text">{projectsData[selectedProject].solution}</p>
-                  </div>
-                  
-                  <div className="modal-info-block">
-                    <h4 className="modal-section-heading">Technologies Used</h4>
-                    <div className="modal-tags">
-                      {projectsData[selectedProject].technologies.map((tech, idx) => (
-                        <span key={idx} className="modal-tag-pill">{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="modal-info-block">
-                    <h4 className="modal-section-heading">Result</h4>
-                    <p className="modal-text">{projectsData[selectedProject].result}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
         </section>
       </div>
     )}
@@ -2115,6 +2042,79 @@ function App() {
           <p className="footer-copyright">&copy; {new Date().getFullYear()} Tamma Nived Reddy. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* Project Detailed Modal Viewer */}
+      {selectedProject && (
+        <div className="project-modal-backdrop" onClick={() => setSelectedProject(null)}>
+          <div className="project-modal-card glass-card animate-fade-in" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            
+            <div className="modal-banner">
+              <div className="modal-banner-graphic">
+                {selectedProject === 'crm' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(99, 102, 241, 0.05)" />
+                    <path d="M-50 150 C100 100, 200 250, 450 150" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.4" />
+                    <path d="M-50 120 C120 180, 250 80, 450 130" stroke="var(--accent-purple)" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.3" />
+                    <circle cx="200" cy="100" r="40" fill="none" stroke="var(--accent-cyan)" strokeWidth="1" strokeDasharray="6 2" />
+                    <circle cx="200" cy="100" r="60" fill="none" stroke="var(--accent-purple)" strokeWidth="1" strokeDasharray="10 4" />
+                  </svg>
+                )}
+                {selectedProject === 'atm' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(168, 85, 247, 0.05)" />
+                    <path d="M0 40 L180 40 L220 80 L400 80" stroke="var(--accent-purple)" strokeWidth="2" opacity="0.3" />
+                    <path d="M0 140 L150 140 L190 100 L400 100" stroke="var(--accent-cyan)" strokeWidth="2" opacity="0.2" />
+                    <rect x="160" y="70" width="80" height="40" rx="8" fill="rgba(255,255,255,0.02)" stroke="var(--accent-cyan)" strokeWidth="1.5" />
+                  </svg>
+                )}
+                {selectedProject === 'library' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(236, 72, 153, 0.05)" />
+                    <path d="M 50 0 L 50 200 M 100 0 L 100 200 M 150 0 L 150 200 M 200 0 L 200 200 M 250 0 L 250 200 M 300 0 L 300 200 M 350 0 L 350 200" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <path d="M0 100 Q100 50, 200 100 T400 100" stroke="var(--accent-cyan)" strokeWidth="1.5" fill="none" opacity="0.5" />
+                    <path d="M0 120 Q120 180, 240 80 T400 120" stroke="var(--accent-purple)" strokeWidth="1.5" fill="none" opacity="0.4" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            
+            <div className="modal-body-content">
+              <h3 className="modal-title">{projectsData[selectedProject].title}</h3>
+              
+              <div className="modal-info-block">
+                <h4 className="modal-section-heading">Problem</h4>
+                <p className="modal-text">{projectsData[selectedProject].problem}</p>
+              </div>
+              
+              <div className="modal-info-block">
+                <h4 className="modal-section-heading">Solution</h4>
+                <p className="modal-text">{projectsData[selectedProject].solution}</p>
+              </div>
+              
+              <div className="modal-info-block">
+                <h4 className="modal-section-heading">Technologies Used</h4>
+                <div className="modal-tags">
+                  {projectsData[selectedProject].technologies.map((tech, idx) => (
+                    <span key={idx} className="modal-tag-pill">{tech}</span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="modal-info-block">
+                <h4 className="modal-section-heading">Result</h4>
+                <p className="modal-text">{projectsData[selectedProject].result}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
