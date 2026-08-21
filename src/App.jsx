@@ -518,6 +518,10 @@ function App() {
     { text: "loading professional certifications...", type: "system" },
     { text: "✓ Python Certification - Codegnan", type: "success" },
     { text: "✓ MySQL Certification - Codegnan", type: "success" },
+    { text: "✓ Frontend Certification - Codegnan", type: "success" },
+    { text: "loading project deployments...", type: "system" },
+    { text: "✓ deployed ZapBite AI Food Delivery & Logistics Platform", type: "success" },
+    { text: "✓ pushed 360+ active git contributions to Nivedreddy6/Portfolio", type: "success" },
     { text: "system ready. awaiting command...", type: "ready" }
   ];
 
