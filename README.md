@@ -1,5 +1,15 @@
 # Interactive 3D Developer Portfolio
 
+<p align="left">
+  <img src="https://img.shields.io/badge/React-19.0-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-5.4-646CFF?style=flat-square&logo=vite&logoColor=FFD62B" alt="Vite" />
+  <img src="https://img.shields.io/badge/Redux_Toolkit-1.9-764ABC?style=flat-square&logo=redux&logoColor=white" alt="Redux" />
+  <img src="https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node" />
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/GitHub-Nivedreddy6%2FPortfolio-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
+</p>
+
 Welcome to the source repository of my interactive full-stack developer portfolio. This project showcases my professional experience, education, certifications, and technical projects through a responsive, premium user interface enhanced by physics-based 3D animations.
 
 👉 **Live Demo:** [https://nivedreddy6.github.io/Portfolio](https://github.com/Nivedreddy6/Portfolio) (or your hosting provider link)
