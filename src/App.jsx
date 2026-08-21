@@ -23,6 +23,25 @@ function App() {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [copySuccess, setCopySuccess] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
+  const certificationsData = {
+    python: {
+      title: "Python Programming Certification",
+      issuer: "Codegnan Training Institute",
+      image: "/Python.png"
+    },
+    mysql: {
+      title: "MySQL Database Specialist Certification",
+      issuer: "Codegnan Training Institute",
+      image: "/MySQL.png"
+    },
+    frontend: {
+      title: "Frontend Development Certification",
+      issuer: "Codegnan Training Institute",
+      image: "/Frontend.png"
+    }
+  };
 
   const handleCopyLink = () => {
     const resumePath = `${window.location.origin}/Tamma_Nived_Reddy_Resume.pdf`;
@@ -868,6 +887,8 @@ function App() {
                     className="cert-card glass-card"
                     onMouseMove={handleCardMouseMove}
                     onMouseLeave={handleCardMouseLeave}
+                    onClick={() => setSelectedCertificate('python')}
+                    style={{ cursor: 'pointer' }}
                   >
                     <div className="cert-badge-wrapper">
                       <svg viewBox="0 0 24 24" fill="none" stroke="url(#badge-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -885,6 +906,7 @@ function App() {
                     <div className="cert-info">
                       <h3>Python Certification</h3>
                       <p className="cert-issuer">Codegnan Training Institute</p>
+                      <span className="cert-view-link" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.4rem', display: 'inline-block' }}>Click to view certificate</span>
                     </div>
                   </div>
 
@@ -892,6 +914,8 @@ function App() {
                     className="cert-card glass-card"
                     onMouseMove={handleCardMouseMove}
                     onMouseLeave={handleCardMouseLeave}
+                    onClick={() => setSelectedCertificate('mysql')}
+                    style={{ cursor: 'pointer' }}
                   >
                     <div className="cert-badge-wrapper">
                       <svg viewBox="0 0 24 24" fill="none" stroke="url(#badge-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -903,6 +927,28 @@ function App() {
                     <div className="cert-info">
                       <h3>MySQL Certification</h3>
                       <p className="cert-issuer">Codegnan Training Institute</p>
+                      <span className="cert-view-link" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.4rem', display: 'inline-block' }}>Click to view certificate</span>
+                    </div>
+                  </div>
+
+                  <div 
+                    className="cert-card glass-card"
+                    onMouseMove={handleCardMouseMove}
+                    onMouseLeave={handleCardMouseLeave}
+                    onClick={() => setSelectedCertificate('frontend')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="cert-badge-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="url(#badge-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="8" r="7" className="cert-medal" />
+                        <circle cx="12" cy="8" r="3" className="cert-medal-inner" />
+                        <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" className="cert-ribbon" />
+                      </svg>
+                    </div>
+                    <div className="cert-info">
+                      <h3>Frontend Certification</h3>
+                      <p className="cert-issuer">Codegnan Training Institute</p>
+                      <span className="cert-view-link" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.4rem', display: 'inline-block' }}>Click to view certificate</span>
                     </div>
                   </div>
 
@@ -2050,13 +2096,30 @@ function App() {
             <div className="modal-banner">
               <div className="modal-banner-graphic">
                 {selectedProject === 'crm' && (
-                  <img src="/MySQL.png" alt="CRM Database System Banner" />
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(99, 102, 241, 0.05)" />
+                    <path d="M-50 150 C100 100, 200 250, 450 150" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.4" className="modal-flow-line-1" />
+                    <path d="M-50 120 C120 180, 250 80, 450 130" stroke="var(--accent-purple)" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.3" className="modal-flow-line-2" />
+                    <circle cx="200" cy="100" r="40" fill="none" stroke="var(--accent-cyan)" strokeWidth="1" strokeDasharray="6 2" className="modal-rotate-circle-inner" />
+                    <circle cx="200" cy="100" r="60" fill="none" stroke="var(--accent-purple)" strokeWidth="1" strokeDasharray="10 4" className="modal-rotate-circle-outer" />
+                  </svg>
                 )}
                 {selectedProject === 'atm' && (
-                  <img src="/Python.png" alt="ATM Simulator Banner" />
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(168, 85, 247, 0.05)" />
+                    <path d="M0 40 L180 40 L220 80 L400 80" stroke="var(--accent-purple)" strokeWidth="2" opacity="0.3" className="modal-circuit-line-1" />
+                    <path d="M0 140 L150 140 L190 100 L400 100" stroke="var(--accent-cyan)" strokeWidth="2" opacity="0.2" className="modal-circuit-line-2" />
+                    <rect x="160" y="70" width="80" height="40" rx="8" fill="rgba(255,255,255,0.02)" stroke="var(--accent-cyan)" strokeWidth="1.5" className="modal-pulse-box" />
+                  </svg>
                 )}
                 {selectedProject === 'library' && (
-                  <img src="/Frontend.png" alt="Library Management System Banner" />
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(236, 72, 153, 0.05)" />
+                    <path d="M 50 0 L 50 200 M 100 0 L 100 200 M 150 0 L 150 200 M 200 0 L 200 200 M 250 0 L 250 200 M 300 0 L 300 200 M 350 0 L 350 200" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <path d="M0 100 Q100 50, 200 100 T400 100" stroke="var(--accent-cyan)" strokeWidth="1.5" fill="none" opacity="0.5" className="modal-wave-line-1" />
+                    <path d="M0 120 Q120 180, 240 80 T400 120" stroke="var(--accent-purple)" strokeWidth="1.5" fill="none" opacity="0.4" className="modal-wave-line-2" />
+                  </svg>
                 )}
               </div>
             </div>
@@ -2086,6 +2149,34 @@ function App() {
               <div className="modal-info-block">
                 <h4 className="modal-section-heading">Result</h4>
                 <p className="modal-text">{projectsData[selectedProject].result}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Certificate Detailed Modal Viewer */}
+      {selectedCertificate && (
+        <div className="project-modal-backdrop" onClick={() => setSelectedCertificate(null)}>
+          <div className="project-modal-card glass-card animate-fade-in" style={{ maxWidth: '650px', padding: '1.5rem' }} onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setSelectedCertificate(null)}>
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            
+            <div className="modal-body-content" style={{ padding: '0.5rem 0 0 0' }}>
+              <h3 className="modal-title" style={{ marginBottom: '0.2rem' }}>{certificationsData[selectedCertificate].title}</h3>
+              <p className="modal-text" style={{ color: 'var(--accent-cyan)', fontWeight: '600', marginBottom: '1.2rem' }}>
+                {certificationsData[selectedCertificate].issuer}
+              </p>
+              
+              <div className="cert-image-container" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', background: '#0a0a14' }}>
+                <img 
+                  src={certificationsData[selectedCertificate].image} 
+                  alt={certificationsData[selectedCertificate].title} 
+                  style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '11px' }}
+                />
               </div>
             </div>
           </div>
