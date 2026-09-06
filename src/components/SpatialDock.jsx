@@ -125,7 +125,6 @@ export default function SpatialDock({
         >
           <span className="spatial-logo-dot" />
           <span className="spatial-logo-text">NIVED</span>
-          <span className="spatial-logo-tag">SPATIAL</span>
         </a>
 
         {/* Floating VisionOS Glass Capsule Dock */}
