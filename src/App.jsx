@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SpatialDock from './components/SpatialDock';
-import SpatialCard from './components/SpatialCard';
 
 function App() {
   const EMAILJS_SERVICE_ID = "service_n52ixxy";
@@ -400,41 +398,29 @@ function App() {
     };
   }, []);
 
-  // --- Cursor Tracking & VisionOS 3D Tilt Spotlights on Cards ---
+  // --- Cursor Tracking & 3D Tilt Spotlights on Cards ---
   const handleCardMouseMove = (e) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Specular light percentages
-    const normX = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    const normY = Math.max(0, Math.min(100, (y / rect.height) * 100));
-    
     card.style.setProperty('--mouse-x', `${x}px`);
     card.style.setProperty('--mouse-y', `${y}px`);
-    card.style.setProperty('--spatial-mouse-x', `${normX.toFixed(1)}%`);
-    card.style.setProperty('--spatial-mouse-y', `${normY.toFixed(1)}%`);
     
-    // Dynamic 3D tilt calculation
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const maxTilt = 10;
-    const rotateX = (-(y - centerY) / centerY * maxTilt).toFixed(2);
-    const rotateY = ((x - centerX) / centerX * maxTilt).toFixed(2);
+    const rotateX = -(y - centerY) / (rect.height / 10); // max 10 degrees tilt
+    const rotateY = (x - centerX) / (rect.width / 10);
     
-    card.style.setProperty('--spatial-rotate-x', `${rotateX}deg`);
-    card.style.setProperty('--spatial-rotate-y', `${rotateY}deg`);
     card.style.transition = 'none';
-    card.style.transform = `perspective(1100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(14px)`;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
   };
 
   const handleCardMouseLeave = (e) => {
     const card = e.currentTarget;
     card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease';
-    card.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-    card.style.setProperty('--spatial-rotate-x', '0deg');
-    card.style.setProperty('--spatial-rotate-y', '0deg');
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
   };
 
   // --- Contact Form Submission Handler ---
@@ -580,13 +566,34 @@ function App() {
       {/* Interactive Particle Network Canvas */}
       <canvas ref={canvasRef} className="particle-canvas" />
 
-      {/* VisionOS Floating Spatial Capsule Dock */}
-      <SpatialDock
-        activeSection={activeSection}
-        onNavClick={handleNavClick}
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-      />
+      {/* Navigation Header */}
+      <header className={isNavbarScrolled ? 'scrolled' : ''}>
+        <nav>
+          <a href="#hero" className="logo flicker-slow" onClick={(e) => handleNavClick(e, 'hero')}>NIVED</a>
+          
+          <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+            <a href="#hero" className={activeSection === 'hero' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'hero')}>Home</a>
+            <a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'about')}>About</a>
+            <a href="#education" className={activeSection === 'education' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'education')}>Education</a>
+            <a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
+            <a href="#experience" className={activeSection === 'experience' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'experience')}>Experience</a>
+            <a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+            <a href="#certifications" className={activeSection === 'certifications' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'certifications')}>Certifications</a>
+            <a href="#resume" className={activeSection === 'resume' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'resume')}>Resume</a>
+            <a href="#achievements" className={activeSection === 'achievements' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'achievements')}>Achievements</a>
+            <a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
+          </div>
+
+          <div 
+            className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </header>
 
       <main className="container">
         
@@ -1882,20 +1889,12 @@ function App() {
             
             <div className="contact-info">
               <div>
-                <div className="spatial-window-bar">
-                  <div className="spatial-window-dots">
-                    <span className="spatial-window-dot close" />
-                    <span className="spatial-window-dot minimize" />
-                    <span className="spatial-window-dot maximize" />
-                  </div>
-                  <span className="spatial-badge">DIRECT CHANNELS</span>
-                </div>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: '1.05rem' }}>
                   Have a project, job opening, or opportunity you'd like to discuss? Reach out through any of these platforms or use the messaging portal.
                 </p>
                 <div className="contact-details">
                   <div className="contact-item">
-                    <div className="contact-icon contact-icon-box">
+                    <div className="contact-icon">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse className="location-ping" cx="12" cy="19" rx="2" ry="1" stroke="#6366f1" strokeWidth="1.5" opacity="0" />
                         <path className="location-pin" d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z" stroke="currentColor" strokeWidth="2" />
@@ -1909,7 +1908,7 @@ function App() {
                   </div>
 
                   <div className="contact-item">
-                    <div className="contact-icon contact-icon-box">
+                    <div className="contact-icon">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className="phone-wave wave-1" d="M16 8a5 5 0 0 1 0 8" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" opacity="0" />
                         <path className="phone-wave wave-2" d="M18 5a8 8 0 0 1 0 14" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" opacity="0" />
@@ -1923,7 +1922,7 @@ function App() {
                   </div>
 
                   <div className="contact-item">
-                    <div className="contact-icon contact-icon-box">
+                    <div className="contact-icon">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect className="email-letter" x="6" y="8" width="12" height="10" rx="1" fill="#6366f1" opacity="0" />
                         <path className="email-envelope-back" d="M4 8h16v10H4z" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -1949,14 +1948,6 @@ function App() {
             </div>
 
             <div className="contact-form-panel glass-panel" style={{ position: 'relative', overflow: 'hidden' }}>
-              <div className="spatial-window-bar">
-                <div className="spatial-window-dots">
-                  <span className="spatial-window-dot close" />
-                  <span className="spatial-window-dot minimize" />
-                  <span className="spatial-window-dot maximize" />
-                </div>
-                <span className="spatial-badge">MESSAGING PORTAL</span>
-              </div>
               
               {/* Submission Status Overlay */}
               {formState !== 'idle' && (
