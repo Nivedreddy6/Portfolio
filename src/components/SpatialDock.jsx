@@ -114,62 +114,77 @@ export default function SpatialDock({
   setIsMobileMenuOpen
 }) {
   return (
-    <header className="spatial-dock-header">
-      <div className="spatial-dock-wrapper">
-        {/* Brand Spatial Pill */}
-        <a 
-          href="#hero" 
-          className="spatial-logo-pill"
-          onClick={(e) => onNavClick(e, 'hero')}
-          title="Tamma Nived Reddy"
-        >
-          <span className="spatial-logo-dot" />
-          <span className="spatial-logo-text">NIVED</span>
-        </a>
-
-        {/* Floating VisionOS Glass Capsule Dock */}
-        <nav className="spatial-dock" aria-label="Spatial Navigation Dock">
-          <div className="spatial-dock-capsule">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeSection === item.id;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`spatial-dock-item ${isActive ? 'spatial-dock-item--active' : ''}`}
-                  onClick={(e) => onNavClick(e, item.id)}
-                  aria-label={item.label}
-                  title={item.label}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  <span className="spatial-dock-icon">{item.icon}</span>
-                  <span className="spatial-dock-label">{item.label}</span>
-                  {isActive && <span className="spatial-dock-active-glow" />}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            className={`spatial-hamburger ${isMobileMenuOpen ? 'active' : ''}`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMobileMenuOpen}
+    <>
+      <header className="spatial-dock-header">
+        <div className="spatial-dock-wrapper">
+          {/* Brand Spatial Pill */}
+          <a 
+            href="#hero" 
+            className="spatial-logo-pill"
+            onClick={(e) => {
+              onNavClick(e, 'hero');
+              setIsMobileMenuOpen(false);
+            }}
+            title="Tamma Nived Reddy"
           >
-            <span />
-            <span />
-            <span />
-          </button>
-        </nav>
-      </div>
+            <span className="spatial-logo-dot" />
+            <span className="spatial-logo-text">NIVED</span>
+          </a>
 
-      {/* Mobile Spatial Drawer */}
-      <div className={`spatial-mobile-drawer ${isMobileMenuOpen ? 'active' : ''}`}>
+          {/* Floating VisionOS Glass Capsule Dock */}
+          <nav className="spatial-dock" aria-label="Spatial Navigation Dock">
+            <div className="spatial-dock-capsule">
+              {NAV_ITEMS.map((item) => {
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={`spatial-dock-item ${isActive ? 'spatial-dock-item--active' : ''}`}
+                    onClick={(e) => onNavClick(e, item.id)}
+                    aria-label={item.label}
+                    title={item.label}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <span className="spatial-dock-icon">{item.icon}</span>
+                    <span className="spatial-dock-label">{item.label}</span>
+                    {isActive && <span className="spatial-dock-active-glow" />}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              type="button"
+              className={`spatial-hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Mobile Spatial Drawer (rendered outside header so it covers viewport independently) */}
+      <div 
+        className={`spatial-mobile-drawer ${isMobileMenuOpen ? 'active' : ''}`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <div 
+          className="spatial-mobile-backdrop" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
         <div className="spatial-mobile-content">
           <div className="spatial-mobile-header">
-            <span className="spatial-logo-text">NIVED REDDY</span>
+            <div className="spatial-mobile-brand">
+              <span className="spatial-logo-dot" />
+              <span className="spatial-logo-text">NIVED REDDY</span>
+            </div>
             <button 
               type="button" 
               className="spatial-drawer-close"
@@ -187,7 +202,10 @@ export default function SpatialDock({
                   key={item.id}
                   type="button"
                   className={`spatial-mobile-item ${isActive ? 'spatial-mobile-item--active' : ''}`}
-                  onClick={(e) => onNavClick(e, item.id)}
+                  onClick={(e) => {
+                    onNavClick(e, item.id);
+                    setIsMobileMenuOpen(false);
+                  }}
                 >
                   <span className="spatial-dock-icon">{item.icon}</span>
                   <span className="spatial-dock-label">{item.label}</span>
@@ -197,6 +215,6 @@ export default function SpatialDock({
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
