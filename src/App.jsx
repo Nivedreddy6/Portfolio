@@ -46,7 +46,7 @@ function App() {
   };
 
   const handleCopyLink = () => {
-    const resumePath = `${window.location.origin}/Tamma_Nived_Reddy_Resume.pdf`;
+    const resumePath = `${window.location.origin}/Tamma%20Nived%20-%20Full%20Stack%20Developer.pdf`;
     navigator.clipboard.writeText(resumePath);
     setCopySuccess(true);
     setTimeout(() => setCopySuccess(false), 2000);
@@ -56,8 +56,32 @@ function App() {
 
   // Static data backing the project detailed display modal
   const projectsData = {
+    pulse: {
+      title: "Pulse Workspace – Enterprise Multi-Tenant SaaS Platform",
+      problem: "Enterprise SaaS organizations face massive complexity in ensuring absolute customer data isolation, multi-tenant database routing, and tamper-proof security auditing without duplicating entire infrastructure per tenant.",
+      solution: "Architected a multi-tenant SaaS foundation with Django 6 and Django REST Framework, enforcing strict tenant data isolation at the ORM layer. Built granular Role-Based Access Control (RBAC) with custom DRF permission guards, an automated audit logging engine recording user mutations, IP telemetry, and role transitions for enterprise compliance, with complete containerization via Docker.",
+      technologies: ["Python", "Django 6", "Django REST Framework (DRF)", "PostgreSQL", "Docker", "Swagger / OpenAPI", "RBAC", "Audit Telemetry"],
+      result: "Delivered 100% tenant data separation with zero cross-tenant bleeding, sub-millisecond RBAC permission checks, SOC2-ready audit logging, and comprehensive interactive Swagger documentation."
+    },
+    zapbite: {
+      title: "ZapBite – AI-Powered Food Delivery & Logistics Platform",
+      liveUrl: "https://zap-bite.vercel.app/",
+      problem: "Traditional on-demand food delivery platforms suffer from stale polling updates, disconnected operations between kitchen staff, riders, and customers, and unassisted ordering workflows with high cart abandonment.",
+      solution: "Engineered a high-concurrency real-time delivery ecosystem using React 19, Node.js, and Express 5. Leveraged duplex WebSockets to power 4 synchronized portals (Customer, Kitchen, Rider, Admin). Integrated Google Maps API with live polyline routing, dual-phase order tracking, dynamic ETA countdowns, and built 'BiteBot'—an AI conversational concierge powered by Google Gemini 2.5 Flash for personalized menu recommendations and meal planning.",
+      technologies: ["React 19", "Node.js", "Express 5", "WebSockets", "Google Maps API", "Google Gemini AI", "Tailwind CSS v4", "Chart.js"],
+      result: "Achieved sub-100ms real-time state synchronization across all 4 operational portals, live GPS courier tracking, and an intelligent AI concierge driving higher order conversion."
+    },
+    jobsphere: {
+      title: "Job Sphere Studio – Recruitment & ATS Platform",
+      liveUrl: "https://flask-five-mauve.vercel.app/",
+      problem: "Hiring teams frequently lose top talent in messy email threads and disjointed spreadsheets, resulting in slow turnaround times and lack of visibility into applicant conversion rates.",
+      solution: "Built a modern full-stack Applicant Tracking System (ATS) combining a React 19 frontend with Python 3.12 Flask and SQLAlchemy. Implemented an interactive 5-stage Kanban hiring pipeline (Applied, Screening, Interview, Offer, Hired) with real-time drag-and-drop state updates, automated interview invitations and updates via Python smtplib with calendar-ready HTML emails, and role-based session controls.",
+      technologies: ["Python 3.12", "Flask 3.0", "React 19", "Vite", "SQLAlchemy", "SQLite / PostgreSQL", "REST APIs", "Python smtplib"],
+      result: "Streamlined applicant tracking from weeks to minutes, eliminated dropped candidate touchpoints with automated scheduling emails, and provided hiring managers with instant recruitment velocity metrics."
+    },
     crm: {
       title: "CRM Database System",
+      githubUrl: "https://github.com/Nivedreddy6/Mysql",
       problem: "Enterprise sales operations lacked centralized data models, resulting in redundant transactions, orphaned records, and slow query analytics latency.",
       solution: "Engineered a fully normalized relational schema built in 3NF layout. Implemented stored procedures, indexing keys, and triggers to automate data cleansing and transactional workflows.",
       technologies: ["MySQL", "SQL", "Database Design", "Stored Procedures", "Query Tuning"],
@@ -65,6 +89,8 @@ function App() {
     },
     atm: {
       title: "ATM Simulator",
+      liveUrl: "https://atm-pi-ecru.vercel.app/",
+      githubUrl: "https://github.com/Nivedreddy6",
       problem: "Basic console banking applications fail to structure concurrent transactional states safely, leading to validation bypasses and poor error boundary mapping.",
       solution: "Developed an object-oriented Python command-line banking emulator. Implemented finite state-machine transitions, exception frameworks, and mock database memory tables.",
       technologies: ["Python", "Object-Oriented Programming (OOP)", "Finite State Logic", "Exception Handling", "Data Structures"],
@@ -72,6 +98,8 @@ function App() {
     },
     library: {
       title: "Library Management System",
+      liveUrl: "https://library-management-six-silk.vercel.app/",
+      githubUrl: "https://github.com/Nivedreddy6",
       problem: "Users require a simple, responsive portal to search, bookmark, and catalog book collections without complex infrastructure requirements.",
       solution: "Built a React single-page application integrating Redux Toolkit for bookmarks state storage, Axios client modules, and React Router v7 routes. Created custom filtering algorithms sorting records dynamically.",
       technologies: ["React 19", "Redux Toolkit", "React Router v7", "Axios", "CSS Grid/Flexbox"],
@@ -1424,7 +1452,367 @@ function App() {
               <h2 className="section-title">Key <span>Projects</span></h2>
               <div className="projects-grid">
             
-            {/* Project 1: CRM Database System */}
+            {/* Project 1: Pulse Workspace */}
+            <div 
+              className="project-card glass-card clickable-project-card"
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('pulse')}
+            >
+              <div className="project-visual">
+                <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="pulseGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#6366f1" stopOpacity="0.8"/>
+                      <stop offset="100%" stopColor="#a855f7" stopOpacity="0.8"/>
+                    </linearGradient>
+                    <linearGradient id="tenantBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(99, 102, 241, 0.2)"/>
+                      <stop offset="100%" stopColor="rgba(168, 85, 247, 0.05)"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="25" y="18" width="350" height="184" rx="14" fill="rgba(15, 15, 30, 0.6)" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="1.5"/>
+                  <line x1="25" y1="50" x2="375" y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+                  <circle cx="45" cy="34" r="4" fill="#ef4444"/>
+                  <circle cx="58" cy="34" r="4" fill="#f59e0b"/>
+                  <circle cx="71" cy="34" r="4" fill="#10b981"/>
+                  <text x="95" y="38" fill="#a5b4fc" fontSize="10" fontFamily="Outfit" fontWeight="600" letterSpacing="0.8">PULSE MULTI-TENANT CLOUD</text>
+                  <rect x="280" y="26" width="80" height="16" rx="4" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" strokeWidth="1"/>
+                  <text x="320" y="38" textAnchor="middle" fill="#34d399" fontSize="8" fontFamily="Inter" fontWeight="600">ISOLATION: ACTIVE</text>
+                  <g className="svg-float-element">
+                    <rect x="40" y="65" width="95" height="120" rx="8" fill="url(#tenantBg)" stroke="#6366f1" strokeWidth="1.2"/>
+                    <rect x="40" y="65" width="95" height="22" rx="8" fill="rgba(99, 102, 241, 0.25)"/>
+                    <text x="87" y="80" textAnchor="middle" fill="#e0e7ff" fontSize="9" fontFamily="Outfit" fontWeight="600">TENANT ALPHA</text>
+                    <rect x="48" y="96" width="79" height="12" rx="3" fill="rgba(255,255,255,0.06)"/>
+                    <text x="54" y="105" fill="#a5b4fc" fontSize="7" fontFamily="Inter">Schema: t_alpha</text>
+                    <rect x="48" y="114" width="79" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+                    <text x="54" y="123" fill="#94a3b8" fontSize="7" fontFamily="Inter">RBAC: Level 3</text>
+                    <rect x="48" y="132" width="79" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+                    <text x="54" y="141" fill="#94a3b8" fontSize="7" fontFamily="Inter">Audit: Verified ✓</text>
+                    <circle cx="87" cy="165" r="10" fill="rgba(99, 102, 241, 0.3)" stroke="#818cf8" strokeWidth="1"/>
+                    <path d="M84 165 L86 167 L91 162" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </g>
+                  <g className="svg-float-element-delayed">
+                    <rect x="152" y="60" width="96" height="130" rx="8" fill="rgba(168, 85, 247, 0.12)" stroke="#a855f7" strokeWidth="1.8"/>
+                    <rect x="152" y="60" width="96" height="24" rx="8" fill="url(#pulseGlow)"/>
+                    <text x="200" y="76" textAnchor="middle" fill="#ffffff" fontSize="9" fontFamily="Outfit" fontWeight="700">CORE SAAS</text>
+                    <circle cx="200" cy="115" r="22" fill="rgba(15, 15, 30, 0.8)" stroke="#a855f7" strokeWidth="1.5"/>
+                    <path d="M200 102 L212 107 V116 C212 124 200 129 200 129 C200 129 188 124 188 116 V107 Z" fill="rgba(168, 85, 247, 0.3)" stroke="#c084fc" strokeWidth="1.5"/>
+                    <circle cx="200" cy="114" r="2" fill="#ffffff"/>
+                    <path d="M200 116 V120" stroke="#ffffff" strokeWidth="1.2"/>
+                    <text x="200" y="148" textAnchor="middle" fill="#c084fc" fontSize="8" fontFamily="Outfit" fontWeight="600">DRF RBAC ENGINE</text>
+                    <rect x="160" y="158" width="80" height="18" rx="4" fill="rgba(99, 102, 241, 0.2)" stroke="rgba(99, 102, 241, 0.4)" strokeWidth="1"/>
+                    <text x="200" y="170" textAnchor="middle" fill="#e0e7ff" fontSize="7.5" fontFamily="Inter" fontWeight="600">DOCKERIZED API</text>
+                  </g>
+                  <g className="svg-float-element">
+                    <rect x="265" y="65" width="95" height="120" rx="8" fill="url(#tenantBg)" stroke="#06b6d4" strokeWidth="1.2"/>
+                    <rect x="265" y="65" width="95" height="22" rx="8" fill="rgba(6, 182, 212, 0.25)"/>
+                    <text x="312" y="80" textAnchor="middle" fill="#e0e7ff" fontSize="9" fontFamily="Outfit" fontWeight="600">TENANT BETA</text>
+                    <rect x="273" y="96" width="79" height="12" rx="3" fill="rgba(255,255,255,0.06)"/>
+                    <text x="279" y="105" fill="#67e8f9" fontSize="7" fontFamily="Inter">Schema: t_beta</text>
+                    <rect x="273" y="114" width="79" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+                    <text x="279" y="123" fill="#94a3b8" fontSize="7" fontFamily="Inter">Logs: Tamper-proof</text>
+                    <rect x="273" y="132" width="79" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+                    <text x="279" y="141" fill="#94a3b8" fontSize="7" fontFamily="Inter">SOC2: Compliant</text>
+                    <circle cx="312" cy="165" r="10" fill="rgba(6, 182, 212, 0.2)" stroke="#22d3ee" strokeWidth="1"/>
+                    <path d="M309 165 L311 167 L316 162" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </g>
+                </svg>
+              </div>
+              <div className="project-content">
+                <div className="project-tech">
+                  <span className="tech-pill">Python</span>
+                  <span className="tech-pill">Django 6</span>
+                  <span className="tech-pill">DRF</span>
+                  <span className="tech-pill">PostgreSQL</span>
+                  <span className="tech-pill">Docker</span>
+                </div>
+                <h3 className="project-title">
+                  Pulse Workspace
+                </h3>
+                <p className="project-desc">
+                  Enterprise Multi-Tenant SaaS platform architected in Django 6 & DRF enforcing strict tenant data isolation, granular RBAC, and immutable audit logging.
+                </p>
+                <ul className="project-bullets">
+                  <li>Architected multi-tenant SaaS enforcing strict isolation at ORM layers.</li>
+                  <li>Engineered granular RBAC with custom DRF permission guards.</li>
+                  <li>Built immutable audit logging capturing user mutations & IP telemetry for SOC2.</li>
+                </ul>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  <button 
+                    className="btn-glow btn-primary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject('pulse'); }}
+                  >
+                    View Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a 
+                    href="https://github.com/Nivedreddy6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2: ZapBite */}
+            <div 
+              className="project-card glass-card clickable-project-card"
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('zapbite')}
+            >
+              <div className="project-visual">
+                <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="zapGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#f97316"/>
+                      <stop offset="100%" stopColor="#eab308"/>
+                    </linearGradient>
+                    <radialGradient id="radarGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="rgba(249, 115, 22, 0.4)"/>
+                      <stop offset="100%" stopColor="rgba(249, 115, 22, 0)"/>
+                    </radialGradient>
+                  </defs>
+                  <rect x="20" y="15" width="360" height="190" rx="14" fill="#080b14" stroke="rgba(249, 115, 22, 0.25)" strokeWidth="1.5"/>
+                  <path d="M30 75 H370 M30 140 H370 M110 25 V195 M220 25 V195 M310 25 V195" stroke="rgba(255,255,255,0.04)" strokeWidth="2"/>
+                  <path d="M40 180 Q140 110 220 135 T360 65" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="16" strokeLinecap="round"/>
+                  <path d="M40 180 Q140 110 220 135 T360 65" stroke="#f97316" strokeWidth="3.5" strokeLinecap="round" strokeDasharray="8 4"/>
+                  <circle cx="220" cy="135" r="28" fill="url(#radarGlow)"/>
+                  <circle cx="220" cy="135" r="20" stroke="#f97316" strokeWidth="1" strokeDasharray="3 3"/>
+                  <circle cx="220" cy="135" r="8" fill="#f97316"/>
+                  <circle cx="220" cy="135" r="4" fill="#ffffff"/>
+                  <g transform="translate(35, 28)">
+                    <rect x="0" y="0" width="70" height="18" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+                    <text x="35" y="12" textAnchor="middle" fill="#f5f6f8" fontSize="8" fontFamily="Inter" fontWeight="600">CUSTOMER</text>
+                    <rect x="76" y="0" width="62" height="18" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+                    <text x="107" y="12" textAnchor="middle" fill="#f5f6f8" fontSize="8" fontFamily="Inter" fontWeight="600">KITCHEN</text>
+                    <rect x="144" y="0" width="56" height="18" rx="4" fill="rgba(249, 115, 22, 0.2)" stroke="#f97316" strokeWidth="1"/>
+                    <text x="172" y="12" textAnchor="middle" fill="#fb923c" fontSize="8" fontFamily="Inter" fontWeight="700">RIDER</text>
+                    <rect x="206" y="0" width="54" height="18" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+                    <text x="233" y="12" textAnchor="middle" fill="#f5f6f8" fontSize="8" fontFamily="Inter" fontWeight="600">ADMIN</text>
+                  </g>
+                  <rect x="300" y="28" width="68" height="18" rx="9" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" strokeWidth="1"/>
+                  <circle cx="310" cy="37" r="3" fill="#10b981"/>
+                  <text x="318" y="41" fill="#34d399" fontSize="7.5" fontFamily="Inter" fontWeight="700">LIVE WS</text>
+                  <g transform="translate(40, 160)">
+                    <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#eab308" strokeWidth="2"/>
+                    <text x="0" y="4" textAnchor="middle" fill="#fde047" fontSize="10">🍳</text>
+                    <rect x="-25" y="18" width="50" height="14" rx="3" fill="#0f172a" stroke="rgba(255,255,255,0.1)" strokeWidth="0.8"/>
+                    <text x="0" y="28" textAnchor="middle" fill="#cbd5e1" fontSize="7" fontFamily="Inter" fontWeight="600">Kitchen</text>
+                  </g>
+                  <g transform="translate(345, 65)">
+                    <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#10b981" strokeWidth="2"/>
+                    <text x="0" y="4" textAnchor="middle" fill="#34d399" fontSize="10">🏠</text>
+                    <rect x="-26" y="18" width="52" height="14" rx="3" fill="#0f172a" stroke="rgba(255,255,255,0.1)" strokeWidth="0.8"/>
+                    <text x="0" y="28" textAnchor="middle" fill="#cbd5e1" fontSize="7" fontFamily="Inter" fontWeight="600">Customer</text>
+                  </g>
+                  <g className="svg-float-element" transform="translate(60, 85)">
+                    <rect x="0" y="0" width="135" height="42" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="#f97316" strokeWidth="1.2"/>
+                    <circle cx="16" cy="18" r="8" fill="url(#zapGlow)"/>
+                    <text x="16" y="22" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="700">✨</text>
+                    <text x="32" y="16" fill="#fb923c" fontSize="8" fontFamily="Outfit" fontWeight="700">BiteBot (Gemini AI)</text>
+                    <text x="32" y="30" fill="#e2e8f0" fontSize="7" fontFamily="Inter">ETA 14 min • Route optimal</text>
+                  </g>
+                </svg>
+              </div>
+              <div className="project-content">
+                <div className="project-tech">
+                  <span className="tech-pill">React 19</span>
+                  <span className="tech-pill">Node.js</span>
+                  <span className="tech-pill">WebSockets</span>
+                  <span className="tech-pill">Google Maps</span>
+                  <span className="tech-pill">Gemini AI</span>
+                </div>
+                <h3 className="project-title">
+                  ZapBite
+                </h3>
+                <p className="project-desc">
+                  AI-Powered food delivery & logistics platform featuring 4 synchronized real-time WebSockets portals, GPS route tracking, and Gemini AI assistant.
+                </p>
+                <ul className="project-bullets">
+                  <li>4 synchronized real-time portals (Customer, Kitchen, Rider, Admin).</li>
+                  <li>Live GPS telemetry with dynamic polyline route calculation and ETA countdowns.</li>
+                  <li>BiteBot AI conversational concierge using Google Gemini 2.5 Flash for smart ordering.</li>
+                </ul>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  <a 
+                    href="https://zap-bite.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="btn-glow btn-primary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Live Demo
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <button 
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject('zapbite'); }}
+                  >
+                    View Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a 
+                    href="https://github.com/Nivedreddy6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3: Job Sphere Studio */}
+            <div 
+              className="project-card glass-card clickable-project-card"
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              onClick={() => setSelectedProject('jobsphere')}
+            >
+              <div className="project-visual">
+                <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="20" y="15" width="360" height="190" rx="14" fill="#090f19" stroke="rgba(16, 185, 129, 0.25)" strokeWidth="1.5"/>
+                  <rect x="20" y="15" width="360" height="32" rx="14" fill="rgba(16, 185, 129, 0.08)"/>
+                  <text x="40" y="36" fill="#f5f6f8" fontSize="11" fontFamily="Outfit" fontWeight="700">JOB SPHERE STUDIO</text>
+                  <text x="175" y="36" fill="#34d399" fontSize="8.5" fontFamily="Inter" fontWeight="600">5-STAGE INTERACTIVE ATS KANBAN</text>
+                  <rect x="300" y="23" width="65" height="16" rx="4" fill="rgba(6, 182, 212, 0.15)" stroke="rgba(6, 182, 212, 0.3)" strokeWidth="1"/>
+                  <text x="332" y="34" textAnchor="middle" fill="#67e8f9" fontSize="7.5" fontFamily="Inter" fontWeight="600">SMTP: READY</text>
+                  <g transform="translate(32, 58)">
+                    <rect x="0" y="0" width="62" height="135" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+                    <text x="31" y="14" textAnchor="middle" fill="#94a3b8" fontSize="7.5" fontFamily="Outfit" fontWeight="700">APPLIED (12)</text>
+                    <rect x="6" y="24" width="50" height="28" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" strokeWidth="1"/>
+                    <rect x="10" y="30" width="32" height="4" rx="2" fill="#e2e8f0"/>
+                    <rect x="10" y="38" width="22" height="3" rx="1.5" fill="#64748b"/>
+                    <rect x="6" y="58" width="50" height="28" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" strokeWidth="1"/>
+                    <rect x="10" y="64" width="36" height="4" rx="2" fill="#e2e8f0"/>
+                    <rect x="10" y="72" width="20" height="3" rx="1.5" fill="#64748b"/>
+                  </g>
+                  <g transform="translate(100, 58)">
+                    <rect x="0" y="0" width="62" height="135" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+                    <text x="31" y="14" textAnchor="middle" fill="#38bdf8" fontSize="7.5" fontFamily="Outfit" fontWeight="700">SCREEN (5)</text>
+                    <rect x="6" y="24" width="50" height="28" rx="4" fill="rgba(56, 189, 248, 0.08)" stroke="rgba(56, 189, 248, 0.25)" strokeWidth="1"/>
+                    <rect x="10" y="30" width="30" height="4" rx="2" fill="#bae6fd"/>
+                    <rect x="10" y="38" width="18" height="3" rx="1.5" fill="#38bdf8"/>
+                  </g>
+                  <g transform="translate(168, 58)">
+                    <rect x="0" y="0" width="64" height="135" rx="6" fill="rgba(16, 185, 129, 0.06)" stroke="rgba(16, 185, 129, 0.3)" strokeWidth="1.2"/>
+                    <text x="32" y="14" textAnchor="middle" fill="#34d399" fontSize="7.5" fontFamily="Outfit" fontWeight="700">INTERVIEW (3)</text>
+                    <g className="svg-float-element" transform="translate(5, 24)">
+                      <rect x="0" y="0" width="54" height="46" rx="5" fill="rgba(15, 23, 42, 0.9)" stroke="#10b981" strokeWidth="1.5"/>
+                      <rect x="6" y="8" width="34" height="4" rx="2" fill="#6ee7b7"/>
+                      <rect x="6" y="16" width="24" height="3" rx="1.5" fill="#94a3b8"/>
+                      <rect x="6" y="26" width="42" height="13" rx="3" fill="rgba(16, 185, 129, 0.2)"/>
+                      <text x="27" y="35" textAnchor="middle" fill="#a7f3d0" fontSize="6.5" fontFamily="Inter" fontWeight="700">📅 CONFIRMED</text>
+                    </g>
+                    <rect x="6" y="78" width="52" height="26" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+                    <rect x="10" y="84" width="28" height="4" rx="2" fill="#cbd5e1"/>
+                  </g>
+                  <g transform="translate(238, 58)">
+                    <rect x="0" y="0" width="62" height="135" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+                    <text x="31" y="14" textAnchor="middle" fill="#facc15" fontSize="7.5" fontFamily="Outfit" fontWeight="700">OFFER (2)</text>
+                    <rect x="6" y="24" width="50" height="28" rx="4" fill="rgba(250, 204, 21, 0.08)" stroke="rgba(250, 204, 21, 0.25)" strokeWidth="1"/>
+                    <rect x="10" y="30" width="30" height="4" rx="2" fill="#fef08a"/>
+                    <rect x="10" y="38" width="20" height="3" rx="1.5" fill="#facc15"/>
+                  </g>
+                  <g transform="translate(306, 58)">
+                    <rect x="0" y="0" width="62" height="135" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+                    <text x="31" y="14" textAnchor="middle" fill="#818cf8" fontSize="7.5" fontFamily="Outfit" fontWeight="700">HIRED (8) 🎉</text>
+                    <rect x="6" y="24" width="50" height="28" rx="4" fill="rgba(129, 140, 248, 0.1)" stroke="rgba(129, 140, 248, 0.3)" strokeWidth="1"/>
+                    <rect x="10" y="30" width="30" height="4" rx="2" fill="#c7d2fe"/>
+                    <rect x="10" y="38" width="22" height="3" rx="1.5" fill="#818cf8"/>
+                  </g>
+                </svg>
+              </div>
+              <div className="project-content">
+                <div className="project-tech">
+                  <span className="tech-pill">Python 3.12</span>
+                  <span className="tech-pill">Flask 3.0</span>
+                  <span className="tech-pill">React 19</span>
+                  <span className="tech-pill">SQLAlchemy</span>
+                  <span className="tech-pill">SMTP Engine</span>
+                </div>
+                <h3 className="project-title">
+                  Job Sphere Studio
+                </h3>
+                <p className="project-desc">
+                  Full-stack Recruitment & ATS platform with interactive 5-stage Kanban hiring pipeline, automated interview scheduling, and email dispatches.
+                </p>
+                <ul className="project-bullets">
+                  <li>5-stage interactive ATS Kanban pipeline (Applied, Screening, Interview, Offer, Hired).</li>
+                  <li>Automated interview scheduling via Python smtplib with calendar-ready HTML invites.</li>
+                  <li>Relational candidate tracking schemas with SQLAlchemy ORM and RBAC sessions.</li>
+                </ul>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  <a 
+                    href="https://flask-five-mauve.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="btn-glow btn-primary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Live Demo
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <button 
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject('jobsphere'); }}
+                  >
+                    View Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a 
+                    href="https://github.com/Nivedreddy6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4: CRM Database System */}
             <div 
               className="project-card glass-card clickable-project-card"
               onMouseMove={handleCardMouseMove}
@@ -1489,13 +1877,23 @@ function App() {
                   <li>Authored stored procedures and advanced SQL queries for automated metrics extraction.</li>
                   <li>Improved execution performance through strategic indexing and query structure testing.</li>
                 </ul>
-                <div className="project-links" style={{ marginTop: '1.5rem' }}>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  <button 
+                    className="btn-glow btn-primary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject('crm'); }}
+                  >
+                    View Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
                   <a 
                     href="https://github.com/Nivedreddy6/Mysql" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="btn-glow btn-primary"
-                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', display: 'inline-flex', alignItems: 'center' }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     GitHub Code
@@ -1555,13 +1953,13 @@ function App() {
                   <li>Used dictionary structures to cache transaction statements and details securely.</li>
                   <li>Structured code modularity using custom validation logic and exception handles.</li>
                 </ul>
-                <div className="project-links" style={{ marginTop: '1.5rem' }}>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
                   <a 
                     href="https://atm-pi-ecru.vercel.app/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="btn-glow btn-primary"
-                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     Live Demo
@@ -1569,6 +1967,29 @@ function App() {
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
                       <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <button 
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject('atm'); }}
+                  >
+                    View Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a 
+                    href="https://github.com/Nivedreddy6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                   </a>
                 </div>
@@ -1661,20 +2082,43 @@ function App() {
                   <li>Created dynamic filtering algorithms sorting records by genre, rating, and shelflist location.</li>
                   <li>Built protected authentication routes for adding, editing, and deleting records using simulated REST endpoints.</li>
                 </ul>
-                <div className="project-links" style={{ marginTop: '1.5rem' }}>
+                <div className="project-links" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
                   <a 
                     href="https://library-management-six-silk.vercel.app/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="btn-glow btn-primary"
-                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center' }}
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     Live Demo
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" style={{ marginLeft: '6px' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
                       <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <button 
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1.1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject('library'); }}
+                  >
+                    View Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a 
+                    href="https://github.com/Nivedreddy6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="viewer-action-btn secondary"
+                    style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', display: 'inline-flex', alignItems: 'center' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ marginLeft: '6px' }}>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                   </a>
                 </div>
@@ -1700,7 +2144,7 @@ function App() {
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                       <polyline points="14 2 14 8 20 8" />
                     </svg>
-                    <span>Tamma_Nived_Reddy_Resume.pdf</span>
+                    <span>Tamma Nived - Full Stack Developer.pdf</span>
                   </div>
                   
                   <div className="viewer-actions">
@@ -1719,7 +2163,7 @@ function App() {
                       </svg>
                       Print
                     </button>
-                    <a href="/Tamma_Nived_Reddy_Resume.pdf" download="Tamma_Nived_Reddy_Resume.pdf" className="viewer-action-btn primary">
+                    <a href="/Tamma%20Nived%20-%20Full%20Stack%20Developer.pdf" download="Tamma Nived - Full Stack Developer.pdf" className="viewer-action-btn primary">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                         <polyline points="7 10 12 15 17 10" />
@@ -1736,8 +2180,11 @@ function App() {
                     {/* Header */}
                     <div className="paper-header">
                       <h1>TAMMA NIVED REDDY</h1>
+                      <div className="paper-subtitle" style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--accent-primary)', marginBottom: '0.35rem' }}>
+                        Full Stack Developer (Python | Django | React | Node.js | .NET Core)
+                      </div>
                       <div className="contact-meta">
-                        <span>nivedreddy6@gmail.com</span> | <span>+91 77026 18534</span> | <span>Tenali, Andhra Pradesh</span>
+                        <span>Hyderabad, Telangana</span> | <span>+91 77026 18534</span> | <span>nivedreddy6@gmail.com</span>
                       </div>
                       <div className="social-meta">
                         <a href="https://github.com/Nivedreddy6" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://linkedin.com/in/nived-reddy-97a986257" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -1748,7 +2195,7 @@ function App() {
                     <div className="paper-section">
                       <h2 className="section-heading">Professional Summary</h2>
                       <p className="summary-paragraph">
-                        Motivated MCA graduate with hands-on full stack development experience across Python, Flask, React JS, Angular, .NET Core, and MySQL. Proven ability to build responsive web applications, robust REST APIs, and normalized database solutions with strong problem-solving skills.
+                        Full Stack Developer with hands-on experience designing, developing, and shipping production web applications across Python, Flask, React, and MySQL. Proven track record delivering complete end-to-end solutions—from relational database architecture to scalable REST APIs and responsive modern user interfaces. Experienced in Agile team delivery, owning features from requirements through code reviews, and resolving production issues.
                       </p>
                     </div>
 
@@ -1762,11 +2209,11 @@ function App() {
                         </div>
                         <div className="company">Inspiredge IT Solutions</div>
                         <ul className="bullets">
-                          <li>Developed and maintained full-stack web application modules using Python, Angular, .NET Core, and MySQL.</li>
-                          <li>Designed robust backend architecture and secure REST APIs to support scalable application functionality.</li>
-                          <li>Engineered responsive user interfaces with comprehensive client-side data validation and error handling.</li>
-                          <li>Managed normalized MySQL database schemas, authored optimized SQL queries, and implemented efficient CRUD operations.</li>
-                          <li>Collaborated actively in Agile sprint ceremonies, technical code reviews, debugging, and quality assurance.</li>
+                          <li>Engineered employee-management modules using .NET Core, Angular, and MySQL, taking features through live deployment.</li>
+                          <li>Designed and built secure RESTful APIs and service layers in .NET Core with role-based authentication and data access.</li>
+                          <li>Built Angular reactive forms, reusable dashboard components, and client-side validation routines, improving workflow data integrity.</li>
+                          <li>Developed and tuned MySQL stored procedures, triggers, and queries supporting transactional CRUD operations and reporting.</li>
+                          <li>Actively participated in Agile sprint planning, code reviews, cross-functional debugging, and QA testing for stable releases.</li>
                         </ul>
                       </div>
                     </div>
@@ -1787,35 +2234,122 @@ function App() {
 
                     {/* Section: Skills */}
                     <div className="paper-section">
-                      <h2 className="section-heading">Skills & Frameworks</h2>
+                      <h2 className="section-heading">Technical Skills</h2>
                       <div className="skills-row">
-                        <strong>Programming Languages:</strong>
+                        <strong>Languages & Core:</strong>
                         <div className="skills-pills-container">
                           <span className="skill-pill">Python</span>
-                          <span className="skill-pill">Flask</span>
-                          <span className="skill-pill">.NET Core</span>
+                          <span className="skill-pill">JavaScript (ES6+)</span>
+                          <span className="skill-pill">C#</span>
                           <span className="skill-pill">SQL</span>
-                          <span className="skill-pill">MySQL</span>
+                          <span className="skill-pill">OOP</span>
+                          <span className="skill-pill">Data Structures</span>
                         </div>
                       </div>
                       <div className="skills-row">
-                        <strong>Frameworks & Libraries:</strong>
+                        <strong>Backend & APIs:</strong>
                         <div className="skills-pills-container">
-                          <span className="skill-pill">React JS</span>
+                          <span className="skill-pill">Django</span>
+                          <span className="skill-pill">DRF</span>
+                          <span className="skill-pill">Flask</span>
+                          <span className="skill-pill">Node.js</span>
+                          <span className="skill-pill">Express.js</span>
+                          <span className="skill-pill">.NET Core</span>
+                          <span className="skill-pill">REST APIs</span>
+                          <span className="skill-pill">WebSockets</span>
+                          <span className="skill-pill">RBAC</span>
+                        </div>
+                      </div>
+                      <div className="skills-row">
+                        <strong>Frontend & Mobile:</strong>
+                        <div className="skills-pills-container">
+                          <span className="skill-pill">React.js</span>
+                          <span className="skill-pill">React Native</span>
                           <span className="skill-pill">Angular</span>
                           <span className="skill-pill">Redux Toolkit</span>
+                          <span className="skill-pill">React Router</span>
+                          <span className="skill-pill">HTML5</span>
+                          <span className="skill-pill">CSS3</span>
+                          <span className="skill-pill">Vite</span>
                         </div>
                       </div>
                       <div className="skills-row">
-                        <strong>Tools & Development:</strong>
+                        <strong>Databases & ORM:</strong>
                         <div className="skills-pills-container">
-                          <span className="skill-pill">RESTful APIs</span>
-                          <span className="skill-pill">OOP Principles</span>
-                          <span className="skill-pill">Git & GitHub</span>
+                          <span className="skill-pill">PostgreSQL</span>
+                          <span className="skill-pill">MySQL</span>
+                          <span className="skill-pill">SQLite</span>
+                          <span className="skill-pill">SQLAlchemy</span>
+                          <span className="skill-pill">3NF Relational Modeling</span>
+                          <span className="skill-pill">Stored Procedures</span>
+                        </div>
+                      </div>
+                      <div className="skills-row">
+                        <strong>Tools & Workflow:</strong>
+                        <div className="skills-pills-container">
+                          <span className="skill-pill">Docker</span>
+                          <span className="skill-pill">Git</span>
+                          <span className="skill-pill">GitHub</span>
                           <span className="skill-pill">VS Code</span>
                           <span className="skill-pill">Visual Studio</span>
-                          <span className="skill-pill">Vite</span>
+                          <span className="skill-pill">Vercel</span>
+                          <span className="skill-pill">Postman</span>
+                          <span className="skill-pill">Agile/Scrum</span>
                         </div>
+                      </div>
+                    </div>
+
+                    {/* Section: Key Projects */}
+                    <div className="paper-section">
+                      <h2 className="section-heading">Key Projects</h2>
+                      <div className="job-entry" style={{ marginBottom: '0.8rem' }}>
+                        <div className="entry-header">
+                          <span className="title">Pulse Workspace – Enterprise Multi-Tenant SaaS Platform</span>
+                          <span className="date">Django 6 · DRF · PostgreSQL · Docker</span>
+                        </div>
+                        <ul className="bullets">
+                          <li>Architected multi-tenant SaaS platform in Django 6 enforcing strict data isolation at ORM layers.</li>
+                          <li>Engineered granular RBAC with custom DRF permission guards and immutable audit logging engine.</li>
+                        </ul>
+                      </div>
+                      <div className="job-entry" style={{ marginBottom: '0.8rem' }}>
+                        <div className="entry-header">
+                          <span className="title">
+                            ZapBite – AI-Powered Food Delivery & Logistics Platform{' '}
+                            <a 
+                              href="https://zap-bite.vercel.app/" 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              style={{ fontSize: '0.78rem', color: 'var(--accent-cyan)', textDecoration: 'underline', marginLeft: '6px' }}
+                            >
+                              [Live Demo]
+                            </a>
+                          </span>
+                          <span className="date">React 19 · Node.js · WebSockets · Gemini AI</span>
+                        </div>
+                        <ul className="bullets">
+                          <li>Full-stack food delivery ecosystem with WebSockets powering 4 synchronized real-time portals.</li>
+                          <li>Integrated GPS telemetry with live polyline routing, dynamic ETA countdowns, and Gemini 2.5 Flash concierge.</li>
+                        </ul>
+                      </div>
+                      <div className="job-entry" style={{ marginBottom: '0.8rem' }}>
+                        <div className="entry-header">
+                          <span className="title">
+                            Job Sphere Studio – Recruitment & ATS Platform{' '}
+                            <a 
+                              href="https://flask-five-mauve.vercel.app/" 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              style={{ fontSize: '0.78rem', color: 'var(--accent-cyan)', textDecoration: 'underline', marginLeft: '6px' }}
+                            >
+                              [Live Demo]
+                            </a>
+                          </span>
+                          <span className="date">Python 3.12 · Flask 3.0 · React 19 · SQLAlchemy</span>
+                        </div>
+                        <ul className="bullets">
+                          <li>Built end-to-end ATS with interactive 5-stage Kanban pipeline and automated calendar-ready email invites.</li>
+                        </ul>
                       </div>
                     </div>
 
@@ -1823,8 +2357,9 @@ function App() {
                     <div className="paper-section last">
                       <h2 className="section-heading">Certifications</h2>
                       <ul className="bullets">
-                        <li><strong>Python Certification</strong> – Codegnan Training Institute</li>
-                        <li><strong>MySQL Certification</strong> – Codegnan Training Institute</li>
+                        <li><strong>Python Programming</strong> – Codegnan Training Institute</li>
+                        <li><strong>MySQL Database Administration</strong> – Codegnan Training Institute</li>
+                        <li><strong>Modern Frontend Development</strong> – Codegnan Training Institute</li>
                       </ul>
                     </div>
                   </div>
@@ -2110,6 +2645,40 @@ function App() {
             
             <div className="modal-banner">
               <div className="modal-banner-graphic">
+                {selectedProject === 'pulse' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(99, 102, 241, 0.06)" />
+                    <path d="M-50 100 C80 40, 180 160, 450 80" stroke="var(--accent-purple)" strokeWidth="2" strokeDasharray="6 3" opacity="0.4" className="modal-flow-line-1" />
+                    <path d="M-50 140 C100 180, 240 60, 450 130" stroke="var(--accent-cyan)" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.3" className="modal-flow-line-2" />
+                    <rect x="160" y="60" width="80" height="80" rx="16" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" strokeWidth="1.5" />
+                    <circle cx="200" cy="100" r="26" fill="none" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="8 4" className="modal-rotate-circle-inner" />
+                    <circle cx="200" cy="100" r="44" fill="none" stroke="#6366f1" strokeWidth="1" strokeDasharray="12 6" className="modal-rotate-circle-outer" />
+                    <path d="M200 88 L208 92 V100 C208 107 200 112 200 112 C200 112 192 107 192 100 V92 Z" fill="rgba(168, 85, 247, 0.4)" stroke="#ffffff" strokeWidth="1.2" />
+                  </svg>
+                )}
+                {selectedProject === 'zapbite' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(249, 115, 22, 0.06)" />
+                    <path d="M 0 50 Q 150 160 250 80 T 400 120" stroke="#f97316" strokeWidth="2.5" fill="none" opacity="0.6" className="modal-wave-line-1" />
+                    <path d="M 0 130 Q 100 40 220 120 T 400 70" stroke="#eab308" strokeWidth="1.5" strokeDasharray="5 3" fill="none" opacity="0.4" className="modal-wave-line-2" />
+                    <circle cx="200" cy="100" r="35" fill="none" stroke="#f97316" strokeWidth="1.5" strokeDasharray="4 4" className="modal-rotate-circle-inner" />
+                    <circle cx="200" cy="100" r="6" fill="#f97316" />
+                    <circle cx="200" cy="100" r="14" fill="none" stroke="#fb923c" strokeWidth="1" opacity="0.5" />
+                  </svg>
+                )}
+                {selectedProject === 'jobsphere' && (
+                  <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="rgba(16, 185, 129, 0.06)" />
+                    <line x1="50" y1="40" x2="350" y2="40" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeDasharray="4 4" />
+                    <line x1="50" y1="100" x2="350" y2="100" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeDasharray="4 4" />
+                    <line x1="50" y1="160" x2="350" y2="160" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeDasharray="4 4" />
+                    <path d="M 60 140 L 130 90 L 200 110 L 270 60 L 340 70" stroke="#10b981" strokeWidth="2.5" fill="none" opacity="0.7" />
+                    <circle cx="130" cy="90" r="5" fill="#34d399" />
+                    <circle cx="200" cy="110" r="5" fill="#34d399" />
+                    <circle cx="270" cy="60" r="6" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
+                    <circle cx="340" cy="70" r="5" fill="#06b6d4" />
+                  </svg>
+                )}
                 {selectedProject === 'crm' && (
                   <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100%" height="100%" fill="rgba(99, 102, 241, 0.05)" />
@@ -2165,6 +2734,41 @@ function App() {
                 <h4 className="modal-section-heading">Result</h4>
                 <p className="modal-text">{projectsData[selectedProject].result}</p>
               </div>
+
+              {(projectsData[selectedProject].liveUrl || projectsData[selectedProject].githubUrl) && (
+                <div className="modal-info-block" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  {projectsData[selectedProject].liveUrl && (
+                    <a 
+                      href={projectsData[selectedProject].liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-glow btn-primary"
+                      style={{ fontSize: '0.9rem', padding: '0.6rem 1.4rem', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                      Launch Live Demo
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  )}
+                  {projectsData[selectedProject].githubUrl && (
+                    <a 
+                      href={projectsData[selectedProject].githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="viewer-action-btn secondary"
+                      style={{ fontSize: '0.9rem', padding: '0.6rem 1.2rem', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                      GitHub Code
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style={{ marginLeft: '8px' }}>
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
