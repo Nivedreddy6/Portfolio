@@ -58,6 +58,7 @@ function App() {
   const projectsData = {
     pulse: {
       title: "Pulse Workspace – Enterprise Multi-Tenant SaaS Platform",
+      githubUrl: "https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform",
       problem: "Enterprise SaaS organizations face massive complexity in ensuring absolute customer data isolation, multi-tenant database routing, and tamper-proof security auditing without duplicating entire infrastructure per tenant.",
       solution: "Architected a multi-tenant SaaS foundation with Django 6 and Django REST Framework, enforcing strict tenant data isolation at the ORM layer. Built granular Role-Based Access Control (RBAC) with custom DRF permission guards, an automated audit logging engine recording user mutations, IP telemetry, and role transitions for enterprise compliance, with complete containerization via Docker.",
       technologies: ["Python", "Django 6", "Django REST Framework (DRF)", "PostgreSQL", "Docker", "Swagger / OpenAPI", "RBAC", "Audit Telemetry"],
@@ -66,6 +67,7 @@ function App() {
     zapbite: {
       title: "ZapBite – AI-Powered Food Delivery & Logistics Platform",
       liveUrl: "https://zap-bite.vercel.app/",
+      githubUrl: "https://github.com/Nivedreddy6/ZapBite",
       problem: "Traditional on-demand food delivery platforms suffer from stale polling updates, disconnected operations between kitchen staff, riders, and customers, and unassisted ordering workflows with high cart abandonment.",
       solution: "Engineered a high-concurrency real-time delivery ecosystem using React 19, Node.js, and Express 5. Leveraged duplex WebSockets to power 4 synchronized portals (Customer, Kitchen, Rider, Admin). Integrated Google Maps API with live polyline routing, dual-phase order tracking, dynamic ETA countdowns, and built 'BiteBot'—an AI conversational concierge powered by Google Gemini 2.5 Flash for personalized menu recommendations and meal planning.",
       technologies: ["React 19", "Node.js", "Express 5", "WebSockets", "Google Maps API", "Google Gemini AI", "Tailwind CSS v4", "Chart.js"],
@@ -74,6 +76,7 @@ function App() {
     jobsphere: {
       title: "Job Sphere Studio – Recruitment & ATS Platform",
       liveUrl: "https://flask-five-mauve.vercel.app/",
+      githubUrl: "https://github.com/Nivedreddy6/Flask",
       problem: "Hiring teams frequently lose top talent in messy email threads and disjointed spreadsheets, resulting in slow turnaround times and lack of visibility into applicant conversion rates.",
       solution: "Built a modern full-stack Applicant Tracking System (ATS) combining a React 19 frontend with Python 3.12 Flask and SQLAlchemy. Implemented an interactive 5-stage Kanban hiring pipeline (Applied, Screening, Interview, Offer, Hired) with real-time drag-and-drop state updates, automated interview invitations and updates via Python smtplib with calendar-ready HTML emails, and role-based session controls.",
       technologies: ["Python 3.12", "Flask 3.0", "React 19", "Vite", "SQLAlchemy", "SQLite / PostgreSQL", "REST APIs", "Python smtplib"],
@@ -90,7 +93,7 @@ function App() {
     atm: {
       title: "ATM Simulator",
       liveUrl: "https://atm-pi-ecru.vercel.app/",
-      githubUrl: "https://github.com/Nivedreddy6",
+      githubUrl: "https://github.com/Nivedreddy6/Atm",
       problem: "Basic console banking applications fail to structure concurrent transactional states safely, leading to validation bypasses and poor error boundary mapping.",
       solution: "Developed an object-oriented Python command-line banking emulator. Implemented finite state-machine transitions, exception frameworks, and mock database memory tables.",
       technologies: ["Python", "Object-Oriented Programming (OOP)", "Finite State Logic", "Exception Handling", "Data Structures"],
@@ -99,7 +102,7 @@ function App() {
     library: {
       title: "Library Management System",
       liveUrl: "https://library-management-six-silk.vercel.app/",
-      githubUrl: "https://github.com/Nivedreddy6",
+      githubUrl: "https://github.com/Nivedreddy6/LibraryManagement",
       problem: "Users require a simple, responsive portal to search, bookmark, and catalog book collections without complex infrastructure requirements.",
       solution: "Built a React single-page application integrating Redux Toolkit for bookmarks state storage, Axios client modules, and React Router v7 routes. Created custom filtering algorithms sorting records dynamically.",
       technologies: ["React 19", "Redux Toolkit", "React Router v7", "Axios", "CSS Grid/Flexbox"],
@@ -1550,7 +1553,7 @@ function App() {
                     </svg>
                   </button>
                   <a 
-                    href="https://github.com/Nivedreddy6" 
+                    href="https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="viewer-action-btn secondary"
@@ -1673,7 +1676,7 @@ function App() {
                     </svg>
                   </button>
                   <a 
-                    href="https://github.com/Nivedreddy6" 
+                    href="https://github.com/Nivedreddy6/ZapBite" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="viewer-action-btn secondary"
@@ -1796,7 +1799,7 @@ function App() {
                     </svg>
                   </button>
                   <a 
-                    href="https://github.com/Nivedreddy6" 
+                    href="https://github.com/Nivedreddy6/Flask" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="viewer-action-btn secondary"
@@ -1980,7 +1983,7 @@ function App() {
                     </svg>
                   </button>
                   <a 
-                    href="https://github.com/Nivedreddy6" 
+                    href="https://github.com/Nivedreddy6/Atm" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="viewer-action-btn secondary"
@@ -2109,7 +2112,7 @@ function App() {
                     </svg>
                   </button>
                   <a 
-                    href="https://github.com/Nivedreddy6" 
+                    href="https://github.com/Nivedreddy6/LibraryManagement" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="viewer-action-btn secondary"
